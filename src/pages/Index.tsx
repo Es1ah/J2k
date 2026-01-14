@@ -21,7 +21,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Introduction */}
+      {/* Introduction / Philosophy */}
       <section className="container mx-auto py-16 px-4 text-center">
         <h2 className="text-4xl font-script text-j2k-black mb-8">Who We Are</h2>
         <p className="text-lg font-sans max-w-3xl mx-auto leading-relaxed">
@@ -29,14 +29,24 @@ const Index = () => {
         </p>
       </section>
 
-      {/* Placeholder for Featured Galleries */}
+      {/* Featured Galleries - Masonry Grid Placeholder */}
       <section className="bg-j2k-black text-j2k-white py-16 px-4 text-center">
         <h2 className="text-4xl font-script mb-8">Featured Galleries</h2>
-        <p className="text-lg font-sans">Coming Soon: Explore our diverse portfolio!</p>
-        {/* Add gallery previews here */}
+        <p className="text-lg font-sans mb-8">Explore our diverse portfolio!</p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 container mx-auto">
+          {/* Placeholder for masonry grid items */}
+          {[...Array(6)].map((_, i) => (
+            <div key={i} className="bg-gray-800 aspect-video flex items-center justify-center border border-j2k-white p-2">
+              <p className="text-j2k-white font-sans">Gallery Item {i + 1}</p>
+            </div>
+          ))}
+        </div>
+        <Button className="mt-12 bg-j2k-red hover:bg-j2k-red/80 text-j2k-white text-lg px-8 py-4 rounded-full shadow-lg">
+          View All Portfolio
+        </Button>
       </section>
 
-      {/* Placeholder for Testimonials */}
+      {/* Testimonials Placeholder */}
       <section className="container mx-auto py-16 px-4 text-center">
         <h2 className="text-4xl font-script text-j2k-black mb-8">What Our Clients Say</h2>
         <p className="text-lg font-sans">Coming Soon: Hear from our happy clients!</p>

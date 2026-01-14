@@ -1,6 +1,7 @@
 import React from 'react';
 import Header from './Header';
 import Footer from './Footer';
+import EmailCapturePopup from './EmailCapturePopup'; // Import the new EmailCapturePopup
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -14,6 +15,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
         {children}
       </main>
       <Footer />
+      <EmailCapturePopup /> {/* Render the EmailCapturePopup */}
     </div>
   );
 };
