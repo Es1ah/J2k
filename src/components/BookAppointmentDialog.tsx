@@ -50,16 +50,16 @@ const BookAppointmentDialog: React.FC<BookAppointmentDialogProps> = ({ isOpen, o
 
   return (
     <Dialog open={isOpen} onOpenChange={onOpenChange}>
-      <DialogContent className="sm:max-w-[600px] bg-white text-j2k-black p-6 rounded-lg shadow-lg">
-        <DialogHeader className="border-b pb-4 mb-4">
+      <DialogContent className="sm:max-w-[600px] max-h-[90vh] overflow-y-auto bg-white text-j2k-black p-5 rounded-lg shadow-lg"> {/* Reduced padding, added max-h and overflow */}
+        <DialogHeader className="border-b pb-3 mb-3"> {/* Reduced padding/margin */}
           <DialogTitle className="text-2xl font-bold text-center">Book Your Session</DialogTitle>
         </DialogHeader>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6"> {/* Reduced gap */}
           {/* Date Selection */}
           <div>
-            <Label className="text-lg font-semibold mb-4 block">Date:</Label>
-            <div className="flex items-center justify-between mb-4">
+            <Label className="text-lg font-semibold mb-3 block">Date:</Label> {/* Reduced margin */}
+            <div className="flex items-center justify-between mb-3"> {/* Reduced margin */}
               <Button variant="ghost" size="icon" className="text-gray-600 hover:bg-gray-100">
                 <ChevronLeft className="h-4 w-4" />
               </Button>
@@ -68,7 +68,7 @@ const BookAppointmentDialog: React.FC<BookAppointmentDialogProps> = ({ isOpen, o
                 <ChevronRight className="h-4 w-4" />
               </Button>
             </div>
-            <div className="grid grid-cols-7 gap-2 text-sm text-center">
+            <div className="grid grid-cols-7 gap-1 text-sm text-center"> {/* Reduced gap */}
               {['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].map(day => (
                 <div key={day} className="font-semibold text-gray-500">{day}</div>
               ))}
@@ -98,7 +98,7 @@ const BookAppointmentDialog: React.FC<BookAppointmentDialogProps> = ({ isOpen, o
                 );
               })}
             </div>
-            <div className="flex justify-center space-x-4 mt-4 text-sm">
+            <div className="flex justify-center space-x-4 mt-3 text-sm"> {/* Reduced margin */}
               <div className="flex items-center">
                 <span className="h-2 w-2 rounded-full bg-green-600 mr-1"></span> Available
               </div>
@@ -116,25 +116,41 @@ const BookAppointmentDialog: React.FC<BookAppointmentDialogProps> = ({ isOpen, o
 
           {/* Time Selection */}
           <div>
-            <Label className="text-lg font-semibold mb-4 block">Time:</Label>
+            <Label className="text-lg font-semibold mb-3 block">Time:</Label> {/* Reduced margin */}
             <RadioGroup value={selectedTime || ""} onValueChange={setSelectedTime} className="space-y-2">
               <div className="flex items-center space-x-2 border p-3 rounded-md">
-                <RadioGroupItem value="10.00 am - 11.00 am" id="r1" className="text-j2k-red" />
-                <Label htmlFor="r1" className="font-normal">10.00 am - 11.00 am</Label>
+                <RadioGroupItem value="09.00 am - 10.00 am" id="t1" className="text-j2k-red" />
+                <Label htmlFor="t1" className="font-normal">09.00 am - 10.00 am</Label>
               </div>
               <div className="flex items-center space-x-2 border p-3 rounded-md">
-                <RadioGroupItem value="02.00 pm - 03.00 pm" id="r2" className="text-j2k-red" />
-                <Label htmlFor="r2" className="font-normal">02.00 pm - 03.00 pm</Label>
+                <RadioGroupItem value="10.00 am - 11.00 am" id="t2" className="text-j2k-red" />
+                <Label htmlFor="t2" className="font-normal">10.00 am - 11.00 am</Label>
               </div>
               <div className="flex items-center space-x-2 border p-3 rounded-md">
-                <RadioGroupItem value="03.00 pm - 04.00 pm" id="r3" className="text-j2k-red" />
-                <Label htmlFor="r3" className="font-normal">03.00 pm - 04.00 pm</Label>
+                <RadioGroupItem value="11.00 am - 12.00 pm" id="t3" className="text-j2k-red" />
+                <Label htmlFor="t3" className="font-normal">11.00 am - 12.00 pm</Label>
+              </div>
+              <div className="flex items-center space-x-2 border p-3 rounded-md">
+                <RadioGroupItem value="01.00 pm - 02.00 pm" id="t4" className="text-j2k-red" />
+                <Label htmlFor="t4" className="font-normal">01.00 pm - 02.00 pm</Label>
+              </div>
+              <div className="flex items-center space-x-2 border p-3 rounded-md">
+                <RadioGroupItem value="02.00 pm - 03.00 pm" id="t5" className="text-j2k-red" />
+                <Label htmlFor="t5" className="font-normal">02.00 pm - 03.00 pm</Label>
+              </div>
+              <div className="flex items-center space-x-2 border p-3 rounded-md">
+                <RadioGroupItem value="03.00 pm - 04.00 pm" id="t6" className="text-j2k-red" />
+                <Label htmlFor="t6" className="font-normal">03.00 pm - 04.00 pm</Label>
+              </div>
+              <div className="flex items-center space-x-2 border p-3 rounded-md">
+                <RadioGroupItem value="04.00 pm - 05.00 pm" id="t7" className="text-j2k-red" />
+                <Label htmlFor="t7" className="font-normal">04.00 pm - 05.00 pm</Label>
               </div>
             </RadioGroup>
           </div>
         </div>
 
-        <DialogFooter className="mt-8">
+        <DialogFooter className="mt-6"> {/* Reduced margin */}
           <Button
             className="w-full bg-j2k-red hover:bg-j2k-red/80 text-white text-lg py-3 rounded-full"
             onClick={handleProceedBooking}
