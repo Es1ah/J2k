@@ -7,7 +7,7 @@ const Index = () => {
       {/* Hero Section */}
       <section 
         className="relative h-[70vh] bg-cover bg-center flex items-center justify-center text-center"
-        style={{ backgroundImage: "url('/placeholder.svg')" }} // Placeholder image
+        style={{ backgroundImage: "url('/hero-background.png')" }} // Using the new image
       >
         <div className="absolute inset-0 bg-j2k-black opacity-50"></div>
         <div className="relative z-10 text-j2k-white p-4">
