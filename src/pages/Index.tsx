@@ -10,19 +10,18 @@ const Index = () => {
     <div className="bg-j2k-white text-j2k-black">
       {/* Hero Section */}
       <section className="relative h-[70vh] flex items-center justify-center text-center overflow-hidden">
-        {/* DotGrid Background - ensure it's behind everything */}
+        {/* DotGrid Background - black base with red hover */}
         <DotGrid
           dotSize={8}          // Smaller dots for subtlety
           gap={20}             // More spacing
-          baseColor="#8B0000"  // Darker red/maroon
-          activeColor="#CC0000" // J2K Studios red
-          proximity={100}      // Smaller proximity
-          shockRadius={200}    // Smaller shock radius
+          baseColor="#000000"  // Black base color
+          activeColor="#EF4444" // Red hover/active color
+          proximity={100}      // Mouse proximity detection
+          shockRadius={200}    // Click shock radius
           shockStrength={3}    // Weaker shock
           resistance={1000}    // More resistance
           returnDuration={2}   // Slower return
           className="absolute inset-0 z-0"
-          style={{ backgroundColor: '#000000' }} // Black background
         />
         
         {/* Content - ensure it's above the grid */}
