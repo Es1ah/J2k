@@ -15,7 +15,7 @@ const Index = () => {
           <p className="text-xl md:text-2xl font-sans mb-8 animate-fade-in-up delay-200">
             Capturing Your Most Precious Moments Forever
           </p>
-          <Button className="bg-j2k-red hover:bg-j2k-red/80 text-j2k-white text-lg px-8 py-6 rounded-full shadow-lg animate-fade-in-up delay-400">
+          <Button className="bg-j2k-red hover:bg-j2k-red/80 text-j2k-white text-lg px-8 py-6 rounded-none shadow-lg animate-fade-in-up delay-400">
             Book a Session
           </Button>
         </div>
@@ -23,7 +23,7 @@ const Index = () => {
 
       {/* Introduction / Philosophy */}
       <section className="container mx-auto py-16 px-4 text-center">
-        <h2 className="text-4xl font-script text-j2k-black mb-8">Who We Are</h2>
+        <h2 className="text-5xl md:text-6xl font-sans font-extrabold text-j2k-black mb-8 uppercase tracking-tight">Who We Are</h2>
         <p className="text-lg font-sans max-w-3xl mx-auto leading-relaxed">
           At J2K Studios, we believe every moment tells a story. We are a team of passionate photographers dedicated to capturing the raw emotion, intricate details, and unforgettable memories of your life's most significant events. From the intimate glance of a wedding couple to the bold statement of a commercial brand, we bring a cinematic and candid style to every shot, ensuring your story is told beautifully and authentically.
         </p>
@@ -31,25 +31,35 @@ const Index = () => {
 
       {/* Featured Galleries - Masonry Grid Placeholder */}
       <section className="bg-j2k-black text-j2k-white py-16 px-4 text-center">
-        <h2 className="text-4xl font-script mb-8">Featured Galleries</h2>
-        <p className="text-lg font-sans mb-8">Explore our diverse portfolio!</p>
+        <h2 className="text-5xl md:text-6xl font-sans font-extrabold mb-8 uppercase tracking-tight">Featured Galleries</h2>
+        <p className="text-lg font-sans mb-8 leading-relaxed">Explore our diverse portfolio!</p>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 container mx-auto">
-          {/* Placeholder for masonry grid items */}
+          {/* Placeholder for masonry grid items with hover effect */}
           {[...Array(6)].map((_, i) => (
-            <div key={i} className="bg-gray-800 aspect-video flex items-center justify-center border border-j2k-white p-2">
-              <p className="text-j2k-white font-sans">Gallery Item {i + 1}</p>
+            <div 
+              key={i} 
+              className="relative bg-gray-800 aspect-video flex items-center justify-center border border-j2k-white p-2 overflow-hidden group"
+            >
+              <img 
+                src="/placeholder.svg" // Using a generic placeholder image for now
+                alt={`Gallery Item ${i + 1}`} 
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-j2k-black opacity-0 group-hover:opacity-50 transition-opacity duration-300 flex items-center justify-center">
+                <p className="text-j2k-white font-sans text-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300">View Project</p>
+              </div>
             </div>
           ))}
         </div>
-        <Button className="mt-12 bg-j2k-red hover:bg-j2k-red/80 text-j2k-white text-lg px-8 py-4 rounded-full shadow-lg">
+        <Button className="mt-12 bg-j2k-red hover:bg-j2k-red/80 text-j2k-white text-lg px-8 py-4 rounded-none shadow-lg">
           View All Portfolio
         </Button>
       </section>
 
       {/* Testimonials Placeholder */}
       <section className="container mx-auto py-16 px-4 text-center">
-        <h2 className="text-4xl font-script text-j2k-black mb-8">What Our Clients Say</h2>
-        <p className="text-lg font-sans">Coming Soon: Hear from our happy clients!</p>
+        <h2 className="text-5xl md:text-6xl font-sans font-extrabold text-j2k-black mb-8 uppercase tracking-tight">What Our Clients Say</h2>
+        <p className="text-lg font-sans leading-relaxed">Coming Soon: Hear from our happy clients!</p>
         {/* Add testimonial carousel/grid here */}
       </section>
     </div>
