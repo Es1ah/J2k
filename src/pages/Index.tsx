@@ -10,7 +10,7 @@ const Index = () => {
       {/* Hero Section */}
       <section 
         className="relative h-[70vh] flex items-center justify-center text-center"
-        style={{ backgroundImage: "linear-gradient(to bottom, #000000, #1a1a1a, #2d2d2d, #1e40af)" }} 
+        style={{ backgroundImage: "linear-gradient(to bottom, #111111 0%, #222222 50%, #1A2B4C 100%)" }} 
       >
         <div className="relative z-10 text-j2k-white p-4">
           <img src="/j2k-logo.png" alt="J2K Studios Logo" className="h-24 md:h-32 mx-auto mb-4 animate-fade-in-up" />
