@@ -1,13 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
+import BookAppointmentDialog from '@/components/BookAppointmentDialog'; // Import the new dialog
 
 const Index = () => {
+  const [isBookingDialogOpen, setIsBookingDialogOpen] = useState(false);
+
   return (
     <div className="bg-j2k-white text-j2k-black">
       {/* Hero Section */}
       <section 
         className="relative h-[70vh] bg-cover bg-center flex items-center justify-center text-center"
-        style={{ backgroundImage: "url('/hero-background.png')" }} // Using the clothesline image as background
+        style={{ backgroundImage: "url('/hero-background.png')" }} 
       >
         <div className="absolute inset-0 bg-j2k-black opacity-50"></div>
         <div className="relative z-10 text-j2k-white p-4">
@@ -15,7 +18,10 @@ const Index = () => {
           <p className="text-xl md:text-2xl font-sans mb-8 animate-fade-in-up delay-200">
             Capturing Your Most Precious Moments Forever
           </p>
-          <Button className="bg-j2k-red hover:bg-j2k-red/80 text-j2k-white text-lg px-8 py-6 rounded-none shadow-lg animate-fade-in-up delay-400">
+          <Button 
+            className="bg-j2k-red hover:bg-j2k-red/80 text-j2k-white text-lg px-8 py-6 rounded-none shadow-lg animate-fade-in-up delay-400"
+            onClick={() => setIsBookingDialogOpen(true)} // Open the dialog
+          >
             Book a Session
           </Button>
         </div>
@@ -33,23 +39,76 @@ const Index = () => {
       <section className="bg-j2k-black text-j2k-white py-16 px-4 text-center">
         <h2 className="text-5xl md:text-6xl font-sans font-extrabold mb-8 uppercase tracking-tight">Featured Galleries</h2>
         <p className="text-lg font-sans mb-8 leading-relaxed">Explore our diverse portfolio!</p>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 container mx-auto">
-          {/* Placeholder for masonry grid items with hover effect */}
-          {[...Array(6)].map((_, i) => (
-            <div 
-              key={i} 
-              className="relative bg-gray-800 aspect-video flex items-center justify-center border border-j2k-white p-2 overflow-hidden group"
-            >
-              <img 
-                src="/placeholder.svg" // Using a generic placeholder image for now
-                alt={`Gallery Item ${i + 1}`} 
-                className="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-j2k-black opacity-0 group-hover:opacity-50 transition-opacity duration-300 flex items-center justify-center">
-                <p className="text-j2k-white font-sans text-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300">View Project</p>
+        <div className="overflow-hidden relative py-4"> {/* Added overflow-hidden and relative for animation */}
+          {/* First row sliding right */}
+          <div className="flex animate-slide-right mb-4">
+            {[...Array(6)].map((_, i) => (
+              <div 
+                key={`right-${i}`} 
+                className="flex-shrink-0 w-[300px] h-[200px] relative bg-gray-800 flex items-center justify-center border border-j2k-white p-2 overflow-hidden group mx-2"
+              >
+                <img 
+                  src="/placeholder.svg" 
+                  alt={`Gallery Item ${i + 1}`} 
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-j2k-black opacity-0 group-hover:opacity-50 transition-opacity duration-300 flex items-center justify-center">
+                  <p className="text-j2k-white font-sans text-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300">View Project</p>
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+            {/* Duplicate items for seamless loop */}
+            {[...Array(6)].map((_, i) => (
+              <div 
+                key={`right-dup-${i}`} 
+                className="flex-shrink-0 w-[300px] h-[200px] relative bg-gray-800 flex items-center justify-center border border-j2k-white p-2 overflow-hidden group mx-2"
+              >
+                <img 
+                  src="/placeholder.svg" 
+                  alt={`Gallery Item ${i + 1}`} 
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-j2k-black opacity-0 group-hover:opacity-50 transition-opacity duration-300 flex items-center justify-center">
+                  <p className="text-j2k-white font-sans text-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300">View Project</p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Second row sliding left */}
+          <div className="flex animate-slide-left">
+            {[...Array(6)].map((_, i) => (
+              <div 
+                key={`left-${i}`} 
+                className="flex-shrink-0 w-[300px] h-[200px] relative bg-gray-800 flex items-center justify-center border border-j2k-white p-2 overflow-hidden group mx-2"
+              >
+                <img 
+                  src="/placeholder.svg" 
+                  alt={`Gallery Item ${i + 1}`} 
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-j2k-black opacity-0 group-hover:opacity-50 transition-opacity duration-300 flex items-center justify-center">
+                  <p className="text-j2k-white font-sans text-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300">View Project</p>
+                </div>
+              </div>
+            ))}
+            {/* Duplicate items for seamless loop */}
+            {[...Array(6)].map((_, i) => (
+              <div 
+                key={`left-dup-${i}`} 
+                className="flex-shrink-0 w-[300px] h-[200px] relative bg-gray-800 flex items-center justify-center border border-j2k-white p-2 overflow-hidden group mx-2"
+              >
+                <img 
+                  src="/placeholder.svg" 
+                  alt={`Gallery Item ${i + 1}`} 
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-j2k-black opacity-0 group-hover:opacity-50 transition-opacity duration-300 flex items-center justify-center">
+                  <p className="text-j2k-white font-sans text-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300">View Project</p>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
         <Button className="mt-12 bg-j2k-red hover:bg-j2k-red/80 text-j2k-white text-lg px-8 py-4 rounded-none shadow-lg">
           View All Portfolio
@@ -62,6 +121,8 @@ const Index = () => {
         <p className="text-lg font-sans leading-relaxed">Coming Soon: Hear from our happy clients!</p>
         {/* Add testimonial carousel/grid here */}
       </section>
+
+      <BookAppointmentDialog isOpen={isBookingDialogOpen} onOpenChange={setIsBookingDialogOpen} />
     </div>
   );
 };

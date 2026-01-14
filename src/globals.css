@@ -108,3 +108,32 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* Custom Keyframes for Sliding Galleries */
+@keyframes slide-right {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%); /* Slide half the width of duplicated content */
+  }
+}
+
+@keyframes slide-left {
+  0% {
+    transform: translateX(-50%); /* Start from half the width to loop seamlessly */
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+/* Apply animations using Tailwind's @layer utilities */
+@layer utilities {
+  .animate-slide-right {
+    animation: slide-right 30s linear infinite; /* Adjust duration as needed */
+  }
+  .animate-slide-left {
+    animation: slide-left 30s linear infinite; /* Adjust duration as needed */
+  }
+}
