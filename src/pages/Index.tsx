@@ -7,17 +7,16 @@ const Index = () => {
       {/* Hero Section */}
       <section 
         className="relative h-[70vh] bg-cover bg-center flex items-center justify-center text-center"
-        style={{ backgroundImage: "url('/hero-background.png')" }} // Using the new image
+        style={{ backgroundImage: "url('/hero-background.png')" }} 
       >
         <div className="absolute inset-0 bg-j2k-black opacity-50"></div>
-        <div className="relative z-10 text-j2k-white p-4">
+        <div className="relative z-10 text-j2k-white p-4 flex flex-col items-center justify-center">
           <img src="/j2k-logo.png" alt="J2K Studios Logo" className="h-24 md:h-32 mx-auto mb-4 animate-fade-in-up" />
-          <p className="text-xl md:text-2xl font-sans mb-8 animate-fade-in-up delay-200">
-            Capturing Your Most Precious Moments Forever
-          </p>
-          <Button className="bg-j2k-red hover:bg-j2k-red/80 text-j2k-white text-lg px-8 py-6 rounded-none shadow-lg animate-fade-in-up delay-400">
-            Book a Session
-          </Button>
+          <img 
+            src="/hero-photos-clothesline.png" 
+            alt="Capturing Your Most Precious Moments Forever" 
+            className="max-w-full h-auto md:max-w-xl lg:max-w-2xl mx-auto animate-fade-in-up delay-200" 
+          />
         </div>
       </section>
 
