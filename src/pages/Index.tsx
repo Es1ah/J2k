@@ -11,9 +11,7 @@ const Index = () => {
       >
         <div className="absolute inset-0 bg-j2k-black opacity-50"></div>
         <div className="relative z-10 text-j2k-white p-4">
-          <h1 className="text-5xl md:text-7xl font-script mb-4 animate-fade-in-up">
-            J2K Studios
-          </h1>
+          <img src="/j2k-logo.png" alt="J2K Studios Logo" className="h-24 md:h-32 mx-auto mb-4 animate-fade-in-up" />
           <p className="text-xl md:text-2xl font-sans mb-8 animate-fade-in-up delay-200">
             Capturing Your Most Precious Moments Forever
           </p>

@@ -6,8 +6,8 @@ const Header = () => {
   return (
     <header className="bg-j2k-black text-j2k-white p-4 shadow-md">
       <div className="container mx-auto flex justify-between items-center">
-        <Link to="/" className="text-3xl font-script text-j2k-white hover:text-j2k-red transition-colors">
-          J2K Studios
+        <Link to="/" className="flex items-center">
+          <img src="/j2k-logo.png" alt="J2K Studios Logo" className="h-10 md:h-12" />
         </Link>
         <nav className="hidden md:flex space-x-6">
           <Link to="/" className="text-lg font-sans hover:text-j2k-red transition-colors">Home</Link>
