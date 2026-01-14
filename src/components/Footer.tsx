@@ -1,5 +1,4 @@
 import React from 'react';
-import { MadeWithDyad } from '@/components/made-with-dyad';
 import { Link } from 'react-router-dom';
 import { Instagram, Facebook } from 'lucide-react';
 
@@ -21,7 +20,6 @@ const Footer = () => {
             <Facebook size={24} />
           </Link>
         </div>
-        <MadeWithDyad />
       </div>
     </footer>
   );

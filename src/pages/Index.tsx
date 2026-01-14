@@ -9,10 +9,9 @@ const Index = () => {
     <div className="bg-j2k-white text-j2k-black">
       {/* Hero Section */}
       <section 
-        className="relative h-[70vh] bg-cover bg-center flex items-center justify-center text-center"
-        style={{ backgroundImage: "url('/hero-background.png')" }} 
+        className="relative h-[70vh] flex items-center justify-center text-center"
+        style={{ backgroundImage: "linear-gradient(to bottom, #000000, #1a1a1a, #2d2d2d, #1e40af)" }} 
       >
-        <div className="absolute inset-0 bg-j2k-black opacity-50"></div>
         <div className="relative z-10 text-j2k-white p-4">
           <img src="/j2k-logo.png" alt="J2K Studios Logo" className="h-24 md:h-32 mx-auto mb-4 animate-fade-in-up" />
           <p className="text-xl md:text-2xl font-sans mb-8 animate-fade-in-up delay-200">
