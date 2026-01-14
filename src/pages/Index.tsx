@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
-import BookAppointmentDialog from '@/components/BookAppointmentDialog'; // Import the new dialog
+import BookAppointmentDialog from '@/components/BookAppointmentDialog';
+import DotGrid from '@/components/DotGrid'; // Import the new DotGrid component
 
 const Index = () => {
   const [isBookingDialogOpen, setIsBookingDialogOpen] = useState(false);
@@ -10,8 +11,19 @@ const Index = () => {
       {/* Hero Section */}
       <section 
         className="relative h-[70vh] flex items-center justify-center text-center"
-        style={{ backgroundImage: "linear-gradient(to bottom, #111111 0%, #222222 50%, #1A2B4C 100%)" }} 
       >
+        <DotGrid
+          dotSize={10}
+          gap={15}
+          baseColor="#CC0000"      // J2K Studios primary red
+          activeColor="#FF3333"    // Bright red for hover/active
+          proximity={120}
+          shockRadius={250}
+          shockStrength={5}
+          resistance={750}
+          returnDuration={1.5}
+          className="absolute inset-0 z-0" // Position it as background
+        />
         <div className="relative z-10 text-j2k-white p-4">
           <img src="/j2k-logo.png" alt="J2K Studios Logo" className="h-24 md:h-32 mx-auto mb-4 animate-fade-in-up" />
           <p className="text-xl md:text-2xl font-sans mb-8 animate-fade-in-up delay-200">
@@ -19,7 +31,7 @@ const Index = () => {
           </p>
           <Button 
             className="bg-j2k-red hover:bg-j2k-red/80 text-j2k-white text-lg px-8 py-6 rounded-none shadow-lg animate-fade-in-up delay-400"
-            onClick={() => setIsBookingDialogOpen(true)} // Open the dialog
+            onClick={() => setIsBookingDialogOpen(true)}
           >
             Book a Session
           </Button>
@@ -38,7 +50,7 @@ const Index = () => {
       <section className="bg-j2k-black text-j2k-white py-16 px-4 text-center">
         <h2 className="text-5xl md:text-6xl font-sans font-extrabold mb-8 uppercase tracking-tight">Featured Galleries</h2>
         <p className="text-lg font-sans mb-8 leading-relaxed">Explore our diverse portfolio!</p>
-        <div className="overflow-hidden relative py-4"> {/* Added overflow-hidden and relative for animation */}
+        <div className="overflow-hidden relative py-4">
           {/* First row sliding right */}
           <div className="flex animate-slide-right mb-4">
             {[...Array(6)].map((_, i) => (
