@@ -62,11 +62,21 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+        // J2K Studios Custom Colors
+        j2k: {
+          black: "hsl(var(--j2k-black))",
+          white: "hsl(var(--j2k-white))",
+          red: "hsl(var(--j2k-red))",
+        },
       },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
+      },
+      fontFamily: {
+        sans: ["Inter", "sans-serif"],
+        script: ["Dancing Script", "cursive"],
       },
       keyframes: {
         "accordion-down": {
