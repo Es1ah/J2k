@@ -14,9 +14,9 @@ const Header = () => {
       <Link to="/" className="text-lg font-sans hover:text-j2k-red transition-colors" onClick={() => setIsMobileMenuOpen(false)}>Home</Link>
       <Link to="/portfolio" className="text-lg font-sans hover:text-j2k-red transition-colors" onClick={() => setIsMobileMenuOpen(false)}>Portfolio</Link>
       <Link to="/services" className="text-lg font-sans hover:text-j2k-red transition-colors" onClick={() => setIsMobileMenuOpen(false)}>Services</Link>
-      <Link to="/price-list" className="text-lg font-sans hover:text-j2k-red transition-colors" onClick={() => setIsMobileMenuOpen(false)}>Price List</Link> {/* New Price List link */}
+      <Link to="/price-list" className="text-lg font-sans hover:text-j2k-red transition-colors" onClick={() => setIsMobileMenuOpen(false)}>Price List</Link>
       <Link to="/about" className="text-lg font-sans hover:text-j2k-red transition-colors" onClick={() => setIsMobileMenuOpen(false)}>About Us</Link>
-      <Link to="/contact" className="text-lg font-sans hover:text-j2k-red transition-colors" onClick={() => setIsMobileMenuOpen(false)}>Contact</Link>
+      <Link to="/contact" className="text-lg font-sans hover:text-j2k-red transition-colors" onClick={() => setIsMobileMenuOpen(false)}>Contact</Link> {/* New Contact link */}
     </>
   );
 
