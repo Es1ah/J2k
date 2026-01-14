@@ -1,7 +1,7 @@
 import React from 'react';
 import { MadeWithDyad } from '@/components/made-with-dyad';
 import { Link } from 'react-router-dom';
-import { Instagram, Facebook, TikTok } from 'lucide-react';
+import { Instagram, Facebook } from 'lucide-react'; // Removed TikTok
 
 const Footer = () => {
   return (
@@ -18,9 +18,7 @@ const Footer = () => {
           <Link to="#" className="text-j2k-white hover:text-j2k-red transition-colors" aria-label="Facebook">
             <Facebook size={24} />
           </Link>
-          <Link to="#" className="text-j2k-white hover:text-j2k-red transition-colors" aria-label="TikTok">
-            <TikTok size={24} />
-          </Link>
+          {/* TikTok icon removed */}
         </div>
         <MadeWithDyad />
       </div>
