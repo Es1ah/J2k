@@ -50,7 +50,7 @@ const BookAppointmentDialog: React.FC<BookAppointmentDialogProps> = ({ isOpen, o
 
   return (
     <Dialog open={isOpen} onOpenChange={onOpenChange}>
-      <DialogContent className="sm:max-w-[600px] bg-white text-j2k-black p-5 rounded-lg shadow-lg"> {/* Removed max-h and overflow-y-auto */}
+      <DialogContent className="sm:max-w-[750px] bg-white text-j2k-black p-5 rounded-lg shadow-lg"> {/* Increased max-width */}
         <DialogHeader className="border-b pb-3 mb-3">
           <DialogTitle className="text-2xl font-bold text-center">Book Your Session</DialogTitle>
         </DialogHeader>
@@ -131,20 +131,28 @@ const BookAppointmentDialog: React.FC<BookAppointmentDialogProps> = ({ isOpen, o
                 <Label htmlFor="t3" className="font-normal">11.00 am - 12.00 pm</Label>
               </div>
               <div className="flex items-center space-x-2 border p-3 rounded-md">
-                <RadioGroupItem value="01.00 pm - 02.00 pm" id="t4" className="text-j2k-red" />
-                <Label htmlFor="t4" className="font-normal">01.00 pm - 02.00 pm</Label>
+                <RadioGroupItem value="12.00 pm - 01.00 pm" id="t4" className="text-j2k-red" />
+                <Label htmlFor="t4" className="font-normal">12.00 pm - 01.00 pm</Label>
               </div>
               <div className="flex items-center space-x-2 border p-3 rounded-md">
-                <RadioGroupItem value="02.00 pm - 03.00 pm" id="t5" className="text-j2k-red" />
-                <Label htmlFor="t5" className="font-normal">02.00 pm - 03.00 pm</Label>
+                <RadioGroupItem value="01.00 pm - 02.00 pm" id="t5" className="text-j2k-red" />
+                <Label htmlFor="t5" className="font-normal">01.00 pm - 02.00 pm</Label>
               </div>
               <div className="flex items-center space-x-2 border p-3 rounded-md">
-                <RadioGroupItem value="03.00 pm - 04.00 pm" id="t6" className="text-j2k-red" />
-                <Label htmlFor="t6" className="font-normal">03.00 pm - 04.00 pm</Label>
+                <RadioGroupItem value="02.00 pm - 03.00 pm" id="t6" className="text-j2k-red" />
+                <Label htmlFor="t6" className="font-normal">02.00 pm - 03.00 pm</Label>
               </div>
               <div className="flex items-center space-x-2 border p-3 rounded-md">
-                <RadioGroupItem value="04.00 pm - 05.00 pm" id="t7" className="text-j2k-red" />
-                <Label htmlFor="t7" className="font-normal">04.00 pm - 05.00 pm</Label>
+                <RadioGroupItem value="03.00 pm - 04.00 pm" id="t7" className="text-j2k-red" />
+                <Label htmlFor="t7" className="font-normal">03.00 pm - 04.00 pm</Label>
+              </div>
+              <div className="flex items-center space-x-2 border p-3 rounded-md">
+                <RadioGroupItem value="04.00 pm - 05.00 pm" id="t8" className="text-j2k-red" />
+                <Label htmlFor="t8" className="font-normal">04.00 pm - 05.00 pm</Label>
+              </div>
+              <div className="flex items-center space-x-2 border p-3 rounded-md">
+                <RadioGroupItem value="05.00 pm - 06.00 pm" id="t9" className="text-j2k-red" />
+                <Label htmlFor="t9" className="font-normal">05.00 pm - 06.00 pm</Label>
               </div>
             </RadioGroup>
           </div>
