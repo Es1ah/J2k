@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import BookAppointmentDialog from '@/components/BookAppointmentDialog';
-import DotGrid from '@/components/DotGrid'; // Import the new DotGrid component
+import DotGrid from '@/components/DotGrid';
 
 const Index = () => {
   const [isBookingDialogOpen, setIsBookingDialogOpen] = useState(false);
@@ -9,24 +9,31 @@ const Index = () => {
   return (
     <div className="bg-j2k-white text-j2k-black">
       {/* Hero Section */}
-      <section 
-        className="relative h-[70vh] flex items-center justify-center text-center"
-      >
+      <section className="relative h-[70vh] flex items-center justify-center text-center overflow-hidden">
+        {/* DotGrid Background - ensure it's behind everything */}
         <DotGrid
-          dotSize={10}
-          gap={15}
-          baseColor="#CC0000"      // J2K Studios primary red
-          activeColor="#FF3333"    // Bright red for hover/active
-          proximity={120}
-          shockRadius={250}
-          shockStrength={5}
-          resistance={750}
-          returnDuration={1.5}
-          className="absolute inset-0 z-0" // Position it as background
+          dotSize={8}          // Smaller dots for subtlety
+          gap={20}             // More spacing
+          baseColor="#8B0000"  // Darker red/maroon
+          activeColor="#CC0000" // J2K Studios red
+          proximity={100}      // Smaller proximity
+          shockRadius={200}    // Smaller shock radius
+          shockStrength={3}    // Weaker shock
+          resistance={1000}    // More resistance
+          returnDuration={2}   // Slower return
+          className="absolute inset-0 z-0"
+          style={{ backgroundColor: '#000000' }} // Black background
         />
+        
+        {/* Content - ensure it's above the grid */}
         <div className="relative z-10 text-j2k-white p-4">
-          <img src="/j2k-logo.png" alt="J2K Studios Logo" className="h-24 md:h-32 mx-auto mb-4 animate-fade-in-up" />
-          <p className="text-xl md:text-2xl font-sans mb-8 animate-fade-in-up delay-200">
+          {/* Logo with proper contrast */}
+          <img 
+            src="/j2k-logo.png" 
+            alt="J2K Studios Logo" 
+            className="h-24 md:h-32 mx-auto mb-4 animate-fade-in-up drop-shadow-lg"
+          />
+          <p className="text-xl md:text-2xl font-sans mb-8 animate-fade-in-up delay-200 drop-shadow-md">
             Capturing Your Most Precious Moments Forever
           </p>
           <Button 
