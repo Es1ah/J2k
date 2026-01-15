@@ -10,11 +10,11 @@ interface ServiceItemProps {
 }
 
 const ServiceItem: React.FC<ServiceItemProps> = ({ icon: Icon, title, description }) => (
-  <div className="flex flex-col items-center text-center p-6 bg-white rounded-lg shadow-md border border-gray-100">
-    <div className="p-3 rounded-full bg-j2k-red text-j2k-white mb-4">
+  <div className="flex flex-col items-center text-center p-6 bg-white rounded-lg shadow-md border border-gray-100 transition-all duration-300 hover:shadow-xl hover:border-j2k-red hover:scale-105 group"> {/* Added hover effects and group class */}
+    <div className="p-3 rounded-full bg-j2k-red text-j2k-white mb-4 transition-colors duration-300 group-hover:bg-j2k-black"> {/* Added group-hover for icon background */}
       <Icon size={32} />
     </div>
-    <h3 className="text-xl font-semibold text-j2k-black mb-2">{title}</h3>
+    <h3 className="text-xl font-semibold text-j2k-black mb-2 group-hover:text-j2k-red transition-colors duration-300">{title}</h3> {/* Added group-hover for title color */}
     <p className="text-gray-700 text-base leading-relaxed">{description}</p>
   </div>
 );
