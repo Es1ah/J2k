@@ -75,11 +75,11 @@ const Index = () => {
           <img
             src="/j2k-logo.png"
             alt="J2K Studios Logo"
-            className="h-32 md:h-48 mx-auto mb-8 animate-fade-in-up drop-shadow-2xl" {/* Reduced mb-12 to mb-8 */}
+            className="h-32 md:h-48 mx-auto mb-8 animate-fade-in-up drop-shadow-2xl"
           />
           
-          <div className="mb-8" ref={introTextRef}> {/* Reduced mb-12 to mb-8 */}
-            <h1 className="text-3xl md:text-6xl font-black font-sans drop-shadow-2xl leading-tight mb-8"> {/* Reduced text-7xl to text-6xl and text-4xl to text-3xl */}
+          <div className="mb-8" ref={introTextRef}>
+            <h1 className="text-3xl md:text-6xl font-black font-sans drop-shadow-2xl leading-tight mb-8">
               <span className="bg-gradient-to-r from-white via-gray-100 to-white bg-clip-text text-transparent block">
                 Capturing
               </span>
@@ -95,7 +95,7 @@ const Index = () => {
             </h1>
           </div>
 
-          <div className="animate-fade-in-up delay-400 mt-auto mb-12"> {/* Reduced mb-16 to mb-12 */}
+          <div className="animate-fade-in-up delay-400 mt-auto mb-12">
             <RippleButton
               variant="j2kRedLarge"
               onClick={() => setIsBookingDialogOpen(true)}
