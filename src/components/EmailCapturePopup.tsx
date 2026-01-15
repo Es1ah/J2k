@@ -10,7 +10,7 @@ import {
   DialogFooter,
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
-import { RippleButton, RippleButtonRipples } from "@/components/animate-ui/components/buttons/ripple"; // Import RippleButton
+import { RippleButton } from "@/components/animate-ui/components/buttons/ripple"; // Removed RippleButtonRipples import
 import { toast } from "sonner";
 
 const EmailCapturePopup = () => {
@@ -87,7 +87,7 @@ const EmailCapturePopup = () => {
             onClick={handleSubscribe}
           >
             Subscribe
-            <RippleButtonRipples />
+            {/* Removed <RippleButtonRipples /> as it's now handled internally by RippleButton */}
           </RippleButton>
         </DialogFooter>
       </DialogContent>
