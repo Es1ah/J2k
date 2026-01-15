@@ -71,15 +71,15 @@ const Index = () => {
           className="absolute inset-0 z-0"
         />
 
-        <div className="relative z-10 text-j2k-white p-4 max-w-5xl mx-auto flex flex-col items-center justify-center h-full gap-y-6"> {/* Added gap-y-6 for spacing */}
+        <div className="relative z-10 text-j2k-white p-4 max-w-5xl mx-auto flex flex-col items-center justify-center h-full gap-y-6">
           <img
             src="/j2k-logo.png"
             alt="J2K Studios Logo"
-            className="h-24 md:h-32 mx-auto animate-fade-in-up drop-shadow-2xl" {/* Removed mb-4 */}
+            className="h-24 md:h-32 mx-auto animate-fade-in-up drop-shadow-2xl"
           />
           
-          <div ref={introTextRef}> {/* Removed mb-4 */}
-            <h1 className="text-5xl md:text-8xl font-black font-sans drop-shadow-2xl leading-tight"> {/* Increased text size, removed mb-8 */}
+          <div ref={introTextRef}>
+            <h1 className="text-5xl md:text-8xl font-black font-sans drop-shadow-2xl leading-tight">
               <span className="bg-gradient-to-r from-white via-gray-100 to-white bg-clip-text text-transparent block">
                 Capturing Your Favourite
               </span>
@@ -89,7 +89,7 @@ const Index = () => {
             </h1>
           </div>
 
-          <div className="animate-fade-in-up delay-400"> {/* Removed mt-auto and mb-8 */}
+          <div className="animate-fade-in-up delay-400">
             <RippleButton
               variant="j2kRed"
               onClick={() => setIsBookingDialogOpen(true)}
