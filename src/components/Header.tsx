@@ -16,7 +16,7 @@ const Header = () => {
       <Link to="/services" className="text-lg font-sans hover:text-j2k-red transition-colors" onClick={() => setIsMobileMenuOpen(false)}>Services</Link>
       <Link to="/price-list" className="text-lg font-sans hover:text-j2k-red transition-colors" onClick={() => setIsMobileMenuOpen(false)}>Price List</Link>
       <Link to="/about" className="text-lg font-sans hover:text-j2k-red transition-colors" onClick={() => setIsMobileMenuOpen(false)}>About Us</Link>
-      <Link to="/contact" className="text-lg font-sans hover:text-j2k-red transition-colors" onClick={() => setIsMobileMenuOpen(false)}>Contact</Link> {/* New Contact link */}
+      <Link to="/contact" className="text-lg font-sans hover:text-j2k-red transition-colors" onClick={() => setIsMobileMenuOpen(false)}>Contact</Link>
     </>
   );
 
@@ -27,7 +27,12 @@ const Header = () => {
           <img src="/j2k-logo.png" alt="J2K Studios Logo" className="h-10 md:h-12" />
         </Link>
         <nav className="hidden md:flex space-x-6">
-          {navLinks}
+          <Link to="/" className="text-lg font-sans hover:text-j2k-red transition-colors">Home</Link>
+          <Link to="/portfolio" className="text-lg font-sans hover:text-j2k-red transition-colors">Portfolio</Link>
+          <Link to="/services" className="text-lg font-sans hover:text-j2k-red transition-colors">Services</Link>
+          <Link to="/price-list" className="text-lg font-sans hover:text-j2k-red transition-colors">Price List</Link>
+          <Link to="/about" className="text-lg font-sans hover:text-j2k-red transition-colors">About Us</Link>
+          <Link to="/contact" className="text-lg font-sans hover:text-j2k-red transition-colors">Contact</Link>
         </nav>
         <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
           <SheetTrigger asChild className="md:hidden">
@@ -41,7 +46,12 @@ const Header = () => {
               <img src="/j2k-logo.png" alt="J2K Studios Logo" className="h-12" />
             </Link>
             <nav className="flex flex-col space-y-4 mt-8 text-center">
-              {navLinks}
+              <Link to="/" className="text-lg font-sans hover:text-j2k-red transition-colors" onClick={() => setIsMobileMenuOpen(false)}>Home</Link>
+              <Link to="/portfolio" className="text-lg font-sans hover:text-j2k-red transition-colors" onClick={() => setIsMobileMenuOpen(false)}>Portfolio</Link>
+              <Link to="/services" className="text-lg font-sans hover:text-j2k-red transition-colors" onClick={() => setIsMobileMenuOpen(false)}>Services</Link>
+              <Link to="/price-list" className="text-lg font-sans hover:text-j2k-red transition-colors" onClick={() => setIsMobileMenuOpen(false)}>Price List</Link>
+              <Link to="/about" className="text-lg font-sans hover:text-j2k-red transition-colors" onClick={() => setIsMobileMenuOpen(false)}>About Us</Link>
+              <Link to="/contact" className="text-lg font-sans hover:text-j2k-red transition-colors" onClick={() => setIsMobileMenuOpen(false)}>Contact</Link>
             </nav>
           </SheetContent>
         </Sheet>
