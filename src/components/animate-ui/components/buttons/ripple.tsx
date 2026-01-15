@@ -5,28 +5,25 @@ import { Slot } from '@radix-ui/react-slot';
 import { cva, type VariantProps } from 'class-variance-authority';
 import { cn } from '@/lib/utils';
 
-// RippleButton styles
 const rippleButtonVariants = cva(
   "inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 relative overflow-hidden",
   {
     variants: {
       variant: {
         default: "bg-primary text-primary-foreground hover:bg-primary/90",
-        destructive:
-          "bg-destructive text-destructive-foreground hover:bg-destructive/90",
-        outline:
-          "border border-input bg-background hover:bg-accent hover:text-accent-foreground",
-        secondary:
-          "bg-secondary text-secondary-foreground hover:bg-secondary/80",
+        destructive: "bg-destructive text-destructive-foreground hover:bg-destructive/90",
+        outline: "border border-input bg-background hover:bg-accent hover:text-accent-foreground",
+        secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80",
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
-        // Custom variant for J2K red button
         j2kRed: "bg-j2k-red hover:bg-j2k-red/80 text-j2k-white",
+        j2kRedLarge: "bg-j2k-red hover:bg-j2k-red/80 text-j2k-white text-xl px-12 py-8",
       },
       size: {
         default: "h-10 px-4 py-2",
         sm: "h-9 rounded-md px-3",
         lg: "h-11 rounded-md px-8",
+        xl: "h-14 rounded-md px-12 py-6 text-xl",
         icon: "h-10 w-10",
       },
     },
@@ -44,14 +41,17 @@ export interface RippleButtonProps
 }
 
 const RippleButton = React.forwardRef<HTMLButtonElement, RippleButtonProps>(
-  ({ className, variant, size, asChild = false, ...props }, ref) => {
+  ({ className, variant, size, asChild = false, children, ...props }, ref) => {
     const Comp = asChild ? Slot : "button";
     return (
       <Comp
         className={cn(rippleButtonVariants({ variant, size, className }))}
         ref={ref}
         {...props}
-      />
+      >
+        {children}
+        <RippleEffect />
+      </Comp>
     );
   }
 );
@@ -64,13 +64,10 @@ interface Ripple {
   id: number;
 }
 
-const RippleButtonRipples: React.FC = () => {
+const RippleEffect: React.FC = () => {
   const [ripples, setRipples] = React.useState<Ripple[]>([]);
-  const containerRef = React.useRef<HTMLDivElement>(null);
 
   const addRipple = React.useCallback((event: React.MouseEvent<HTMLButtonElement>) => {
-    if (!containerRef.current) return;
-
     const button = event.currentTarget;
     const rect = button.getBoundingClientRect();
     const size = Math.max(rect.width, rect.height);
@@ -82,23 +79,30 @@ const RippleButtonRipples: React.FC = () => {
   }, []);
 
   React.useEffect(() => {
-    const button = containerRef.current?.parentElement as HTMLButtonElement;
-    if (button) {
-      button.addEventListener('click', addRipple as any);
-    }
-    return () => {
-      if (button) {
-        button.removeEventListener('click', addRipple as any);
+    const handleClick = (e: Event) => {
+      const target = e.target as HTMLElement;
+      const button = target.closest('button');
+      if (button?.contains(target)) {
+        const rect = button.getBoundingClientRect();
+        const size = Math.max(rect.width, rect.height);
+        const x = e.clientX - rect.left - size / 2;
+        const y = e.clientY - rect.top - size / 2;
+        
+        const newRipple = { x, y, size, id: Date.now() };
+        setRipples((prev) => [...prev, newRipple]);
       }
     };
-  }, [addRipple]);
+
+    document.addEventListener('click', handleClick);
+    return () => document.removeEventListener('click', handleClick);
+  }, []);
 
   return (
-    <div ref={containerRef} className="absolute inset-0 overflow-hidden rounded-md pointer-events-none">
+    <>
       {ripples.map((ripple) => (
         <span
           key={ripple.id}
-          className="absolute bg-white opacity-30 rounded-full animate-ripple"
+          className="absolute bg-white opacity-30 rounded-full animate-ripple pointer-events-none"
           style={{
             left: ripple.x,
             top: ripple.y,
@@ -115,7 +119,7 @@ const RippleButtonRipples: React.FC = () => {
             opacity: 0.3;
           }
           to {
-            transform: scale(1.5);
+            transform: scale(4);
             opacity: 0;
           }
         }
@@ -123,8 +127,8 @@ const RippleButtonRipples: React.FC = () => {
           animation: ripple 0.6s linear forwards;
         }
       `}</style>
-    </div>
+    </>
   );
 };
 
-export { RippleButton, RippleButtonRipples, rippleButtonVariants };
+export { RippleButton, rippleButtonVariants };

@@ -1,9 +1,9 @@
 "use client";
 
 import React from 'react';
-import { Button } from '@/components/ui/button';
+import { RippleButton } from '@/components/animate-ui/components/buttons/ripple'; // Import RippleButton
 import { Link } from 'react-router-dom';
-import ServicesSection from '@/components/ServicesSection'; // Import the new ServicesSection
+import ServicesSection from '@/components/ServicesSection';
 
 interface PackageItem {
   id: string;
@@ -39,9 +39,9 @@ const priceList: PackageCategory[] = [
 const PriceList = () => {
   return (
     <div className="min-h-screen bg-j2k-white text-j2k-black">
-      <ServicesSection /> {/* Render the ServicesSection at the top */}
+      <ServicesSection />
 
-      <div className="container mx-auto max-w-4xl py-16 px-4"> {/* Added py-16 for spacing */}
+      <div className="container mx-auto max-w-4xl py-16 px-4">
         <h1 className="text-6xl md:text-8xl font-extrabold text-center mb-16 uppercase tracking-tighter font-sans">
           Price List
         </h1>
@@ -59,13 +59,13 @@ const PriceList = () => {
                     <p className="text-lg text-gray-600">{item.price}</p>
                   </div>
                   <div className="flex space-x-3">
-                    <Button variant="outline" className="border-j2k-red text-j2k-red hover:bg-j2k-red hover:text-j2k-white rounded-none">
+                    <RippleButton variant="outline" className="border-j2k-red text-j2k-red hover:bg-j2k-red hover:text-j2k-white rounded-none">
                       Add to cart
-                    </Button>
+                    </RippleButton>
                     <Link to="/book-a-session">
-                      <Button className="bg-j2k-red hover:bg-j2k-red/80 text-j2k-white rounded-none">
+                      <RippleButton variant="j2kRed" className="rounded-none">
                         Book now
-                      </Button>
+                      </RippleButton>
                     </Link>
                   </div>
                 </div>

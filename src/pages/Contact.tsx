@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from 'react';
-import { Button } from '@/components/ui/button';
+import { RippleButton } from '@/components/animate-ui/components/buttons/ripple'; // Import RippleButton
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
@@ -147,12 +147,13 @@ const Contact = () => {
                   By contacting us, you agree to our <a href="#" className="text-j2k-red hover:underline">Terms of service</a> and <a href="#" className="text-j2k-red hover:underline">Privacy Policy</a>
                 </Label>
               </div>
-              <Button
+              <RippleButton
                 type="submit"
-                className="w-full bg-j2k-red hover:bg-j2k-red/80 text-j2k-white text-base py-2 rounded-none shadow-lg"
+                variant="j2kRed"
+                className="w-full text-base py-2 rounded-none shadow-lg"
               >
                 Submit
-              </Button>
+              </RippleButton>
             </form>
           </div>
         </div>

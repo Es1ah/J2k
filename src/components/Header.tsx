@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Button } from '@/components/ui/button';
+import { Button } from '@/components/ui/button'; // Keep Button for SheetTrigger
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { Menu } from 'lucide-react';
 
@@ -17,8 +17,7 @@ const Header = () => {
         </Link>
         <nav className="hidden md:flex space-x-6">
           <Link to="/" className="text-lg font-sans hover:text-j2k-red transition-colors">Home</Link>
-          <Link to="/portfolio" className="text-lg font-sans hover:text-j2k-red transition-colors">Portfolio</Link>
-          {/* Consolidated Services and Price List into one link */}
+          <Link to="/portfolio" className="text-lg font-sans hover:text-j2k-red transition-colors">Portfolio</Link> {/* New Portfolio link */}
           <Link to="/price-list" className="text-lg font-sans hover:text-j2k-red transition-colors">Services</Link>
           <Link to="/about" className="text-lg font-sans hover:text-j2k-red transition-colors">About Us</Link>
           <Link to="/contact" className="text-lg font-sans hover:text-j2k-red transition-colors">Contact</Link>
@@ -36,8 +35,7 @@ const Header = () => {
             </Link>
             <nav className="flex flex-col space-y-4 mt-8 text-center">
               <Link to="/" className="text-lg font-sans hover:text-j2k-red transition-colors" onClick={() => setIsMobileMenuOpen(false)}>Home</Link>
-              <Link to="/portfolio" className="text-lg font-sans hover:text-j2k-red transition-colors" onClick={() => setIsMobileMenuOpen(false)}>Portfolio</Link>
-              {/* Consolidated Services and Price List into one link */}
+              <Link to="/portfolio" className="text-lg font-sans hover:text-j2k-red transition-colors" onClick={() => setIsMobileMenuOpen(false)}>Portfolio</Link> {/* New Portfolio link */}
               <Link to="/price-list" className="text-lg font-sans hover:text-j2k-red transition-colors" onClick={() => setIsMobileMenuOpen(false)}>Services</Link>
               <Link to="/about" className="text-lg font-sans hover:text-j2k-red transition-colors" onClick={() => setIsMobileMenuOpen(false)}>About Us</Link>
               <Link to="/contact" className="text-lg font-sans hover:text-j2k-red transition-colors" onClick={() => setIsMobileMenuOpen(false)}>Contact</Link>
