@@ -81,15 +81,12 @@ const Index = () => {
           <div className="mb-8" ref={introTextRef}>
             <h1 className="text-3xl md:text-6xl font-black font-sans drop-shadow-2xl leading-tight mb-8">
               <span className="bg-gradient-to-r from-white via-gray-100 to-white bg-clip-text text-transparent block">
-                Capturing
+                Capturing Your
               </span>
               <span className="bg-gradient-to-r from-j2k-red via-white to-j2k-red bg-clip-text text-transparent block my-4">
-                Your Most
+                Favourite Moments
               </span>
               <span className="bg-gradient-to-r from-white via-gray-100 to-white bg-clip-text text-transparent block">
-                Precious Moments
-              </span>
-              <span className="bg-gradient-to-r from-j2k-red via-white to-j2k-red bg-clip-text text-transparent block my-4">
                 Forever
               </span>
             </h1>
@@ -97,9 +94,9 @@ const Index = () => {
 
           <div className="animate-fade-in-up delay-400 mt-auto mb-12">
             <RippleButton
-              variant="j2kRedLarge"
+              variant="j2kRed" // Changed variant to j2kRed
               onClick={() => setIsBookingDialogOpen(true)}
-              className="shadow-2xl text-2xl px-16 py-8"
+              className="shadow-2xl text-xl px-10 py-6" // Adjusted size classes
             >
               Book a Session
             </RippleButton>
