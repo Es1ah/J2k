@@ -75,28 +75,25 @@ const Index = () => {
           <img
             src="/j2k-logo.png"
             alt="J2K Studios Logo"
-            className="h-32 md:h-48 mx-auto mb-8 animate-fade-in-up drop-shadow-2xl"
+            className="h-24 md:h-32 mx-auto mb-4 animate-fade-in-up drop-shadow-2xl" {/* Reduced logo size and margin */}
           />
           
-          <div className="mb-8" ref={introTextRef}>
+          <div className="mb-4" ref={introTextRef}> {/* Reduced margin */}
             <h1 className="text-3xl md:text-6xl font-black font-sans drop-shadow-2xl leading-tight mb-8">
               <span className="bg-gradient-to-r from-white via-gray-100 to-white bg-clip-text text-transparent block">
-                Capturing Your
+                Capturing Your Favourite
               </span>
-              <span className="bg-gradient-to-r from-j2k-red via-white to-j2k-red bg-clip-text text-transparent block my-4">
-                Favourite Moments
-              </span>
-              <span className="bg-gradient-to-r from-white via-gray-100 to-white bg-clip-text text-transparent block">
-                Forever
+              <span className="bg-gradient-to-r from-j2k-red via-white to-j2k-red bg-clip-text text-transparent block mt-4"> {/* Adjusted text and added top margin */}
+                Moments Forever
               </span>
             </h1>
           </div>
 
-          <div className="animate-fade-in-up delay-400 mt-auto mb-12">
+          <div className="animate-fade-in-up delay-400 mt-auto mb-8"> {/* Reduced margin */}
             <RippleButton
-              variant="j2kRed" // Changed variant to j2kRed
+              variant="j2kRed"
               onClick={() => setIsBookingDialogOpen(true)}
-              className="shadow-2xl text-xl px-10 py-6" // Adjusted size classes
+              className="shadow-2xl text-xl px-10 py-6"
             >
               Book a Session
             </RippleButton>
