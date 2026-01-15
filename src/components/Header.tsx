@@ -9,17 +9,6 @@ import { Menu } from 'lucide-react';
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  const navLinks = (
-    <>
-      <Link to="/" className="text-lg font-sans hover:text-j2k-red transition-colors" onClick={() => setIsMobileMenuOpen(false)}>Home</Link>
-      <Link to="/portfolio" className="text-lg font-sans hover:text-j2k-red transition-colors" onClick={() => setIsMobileMenuOpen(false)}>Portfolio</Link>
-      <Link to="/services" className="text-lg font-sans hover:text-j2k-red transition-colors" onClick={() => setIsMobileMenuOpen(false)}>Services</Link>
-      <Link to="/price-list" className="text-lg font-sans hover:text-j2k-red transition-colors" onClick={() => setIsMobileMenuOpen(false)}>Price List</Link>
-      <Link to="/about" className="text-lg font-sans hover:text-j2k-red transition-colors" onClick={() => setIsMobileMenuOpen(false)}>About Us</Link>
-      <Link to="/contact" className="text-lg font-sans hover:text-j2k-red transition-colors" onClick={() => setIsMobileMenuOpen(false)}>Contact</Link>
-    </>
-  );
-
   return (
     <header className="sticky top-0 z-50 bg-j2k-black text-j2k-white p-4 shadow-md">
       <div className="container mx-auto flex justify-between items-center">
@@ -29,8 +18,8 @@ const Header = () => {
         <nav className="hidden md:flex space-x-6">
           <Link to="/" className="text-lg font-sans hover:text-j2k-red transition-colors">Home</Link>
           <Link to="/portfolio" className="text-lg font-sans hover:text-j2k-red transition-colors">Portfolio</Link>
-          <Link to="/services" className="text-lg font-sans hover:text-j2k-red transition-colors">Services</Link>
-          <Link to="/price-list" className="text-lg font-sans hover:text-j2k-red transition-colors">Price List</Link>
+          {/* Consolidated Services and Price List into one link */}
+          <Link to="/price-list" className="text-lg font-sans hover:text-j2k-red transition-colors">Services</Link>
           <Link to="/about" className="text-lg font-sans hover:text-j2k-red transition-colors">About Us</Link>
           <Link to="/contact" className="text-lg font-sans hover:text-j2k-red transition-colors">Contact</Link>
         </nav>
@@ -48,8 +37,8 @@ const Header = () => {
             <nav className="flex flex-col space-y-4 mt-8 text-center">
               <Link to="/" className="text-lg font-sans hover:text-j2k-red transition-colors" onClick={() => setIsMobileMenuOpen(false)}>Home</Link>
               <Link to="/portfolio" className="text-lg font-sans hover:text-j2k-red transition-colors" onClick={() => setIsMobileMenuOpen(false)}>Portfolio</Link>
-              <Link to="/services" className="text-lg font-sans hover:text-j2k-red transition-colors" onClick={() => setIsMobileMenuOpen(false)}>Services</Link>
-              <Link to="/price-list" className="text-lg font-sans hover:text-j2k-red transition-colors" onClick={() => setIsMobileMenuOpen(false)}>Price List</Link>
+              {/* Consolidated Services and Price List into one link */}
+              <Link to="/price-list" className="text-lg font-sans hover:text-j2k-red transition-colors" onClick={() => setIsMobileMenuOpen(false)}>Services</Link>
               <Link to="/about" className="text-lg font-sans hover:text-j2k-red transition-colors" onClick={() => setIsMobileMenuOpen(false)}>About Us</Link>
               <Link to="/contact" className="text-lg font-sans hover:text-j2k-red transition-colors" onClick={() => setIsMobileMenuOpen(false)}>Contact</Link>
             </nav>
