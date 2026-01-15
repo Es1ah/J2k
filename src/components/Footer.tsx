@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Instagram, Facebook } from 'lucide-react';
+import { Facebook } from 'lucide-react'; // Keep Facebook from lucide-react
+import InstagramIcon from './InstagramIcon'; // Import the new InstagramIcon
 
 const Footer = () => {
   return (
@@ -13,9 +14,7 @@ const Footer = () => {
           <p className="text-sm font-sans">&copy; {new Date().getFullYear()} J2K Studios. All rights reserved.</p>
         </div>
         <div className="flex space-x-6 mb-4 md:mb-0">
-          <Link to="#" className="text-j2k-white hover:text-j2k-red transition-colors" aria-label="Instagram">
-            <Instagram size={24} />
-          </Link>
+          <InstagramIcon size={24} className="text-j2k-white hover:text-j2k-red transition-colors" /> {/* Use the new InstagramIcon */}
           <Link to="#" className="text-j2k-white hover:text-j2k-red transition-colors" aria-label="Facebook">
             <Facebook size={24} />
           </Link>

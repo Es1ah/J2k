@@ -18,11 +18,11 @@ const Portfolio = () => {
       <section className="relative h-[60vh] flex items-center justify-center text-center overflow-hidden">
         <div className="relative z-10 p-4">
           <h1 className="text-5xl md:text-8xl font-black font-sans mb-8 uppercase tracking-tight">
-            <span className="bg-gradient-to-r from-j2k-red to-j2k-black bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-j2k-black to-j2k-red bg-clip-text text-transparent">
               Our Portfolio
             </span>
           </h1>
-          <p className="text-xl md:text-3xl font-sans mb-12 max-w-4xl mx-auto">
+          <p className="text-xl md:text-3xl font-sans mb-12 max-w-4xl mx-auto text-j2k-black"> {/* Changed to text-j2k-black */}
             Explore our diverse collection of captured moments and visual stories
           </p>
           <RippleButton variant="j2kRedLarge">

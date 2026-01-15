@@ -71,22 +71,35 @@ const Index = () => {
           className="absolute inset-0 z-0"
         />
 
-        <div className="relative z-10 text-j2k-white p-4 max-w-6xl mx-auto">
+        <div className="relative z-10 text-j2k-white p-4 max-w-5xl mx-auto flex flex-col items-center justify-center h-full">
           <img
             src="/j2k-logo.png"
             alt="J2K Studios Logo"
-            className="h-32 md:h-48 mx-auto mb-8 animate-fade-in-up drop-shadow-2xl"
+            className="h-32 md:h-48 mx-auto mb-12 animate-fade-in-up drop-shadow-2xl"
           />
-          <h1 ref={introTextRef} className="text-4xl md:text-7xl font-black font-sans mb-8 animate-fade-in-up delay-200 drop-shadow-2xl leading-tight">
-            <span className="bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
-              Capturing Your Most Precious Moments Forever
-            </span>
-          </h1>
-          <div className="animate-fade-in-up delay-400">
+          
+          <div className="mb-12" ref={introTextRef}>
+            <h1 className="text-4xl md:text-7xl font-black font-sans drop-shadow-2xl leading-tight mb-8">
+              <span className="bg-gradient-to-r from-white via-gray-100 to-white bg-clip-text text-transparent block">
+                Capturing
+              </span>
+              <span className="bg-gradient-to-r from-j2k-red via-white to-j2k-red bg-clip-text text-transparent block my-4">
+                Your Most
+              </span>
+              <span className="bg-gradient-to-r from-white via-gray-100 to-white bg-clip-text text-transparent block">
+                Precious Moments
+              </span>
+              <span className="bg-gradient-to-r from-j2k-red via-white to-j2k-red bg-clip-text text-transparent block my-4">
+                Forever
+              </span>
+            </h1>
+          </div>
+
+          <div className="animate-fade-in-up delay-400 mt-auto mb-16">
             <RippleButton
               variant="j2kRedLarge"
               onClick={() => setIsBookingDialogOpen(true)}
-              className="shadow-2xl"
+              className="shadow-2xl text-2xl px-16 py-8"
             >
               Book a Session
             </RippleButton>
