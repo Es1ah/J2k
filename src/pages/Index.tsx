@@ -15,8 +15,8 @@ const Index = () => {
   const introTextRef = useRef(null);
   const whoWeAreRef = useRef(null);
 
-  // Portfolio images array
-  const portfolioImages = Array.from({ length: 11 }, (_, i) => `/portfolio-images/portfolio-${i + 1}.jpeg`);
+  // Portfolio images array (now 12 images)
+  const portfolioImages = Array.from({ length: 12 }, (_, i) => `/portfolio-images/portfolio-${i + 1}.jpeg`);
 
   useEffect(() => {
     // Animation for "Capturing Your Most Precious Moments Forever" text
@@ -121,7 +121,7 @@ const Index = () => {
         <p className="text-lg font-sans mb-8 leading-relaxed">Explore our diverse portfolio!</p>
         <div className="overflow-hidden relative py-4">
           {/* First row sliding right */}
-          <div className="flex mb-4 animate-slide-right">
+          <div className="flex animate-slide-right mb-4">
             {[...Array(6)].map((_, i) => (
               <div
                 key={`right-${i}`}
@@ -163,7 +163,7 @@ const Index = () => {
                 className="flex-shrink-0 w-[300px] h-[200px] relative bg-gray-800 flex items-center justify-center border border-j2k-white p-2 overflow-hidden group mx-2"
               >
                 <img
-                  src={portfolioImages[(i + 6) % portfolioImages.length]}
+                  src={portfolioImages[(i + 6) % portfolioImages.length]} // Offset to show different images
                   alt={`Gallery Item ${i + 7}`}
                   className="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                 />
@@ -179,7 +179,7 @@ const Index = () => {
                 className="flex-shrink-0 w-[300px] h-[200px] relative bg-gray-800 flex items-center justify-center border border-j2k-white p-2 overflow-hidden group mx-2"
               >
                 <img
-                  src={portfolioImages[(i + 6) % portfolioImages.length]}
+                  src={portfolioImages[(i + 6) % portfolioImages.length]} // Offset to show different images
                   alt={`Gallery Item ${i + 7}`}
                   className="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                 />

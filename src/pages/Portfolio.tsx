@@ -4,15 +4,15 @@ import React from 'react';
 import { RippleButton } from '@/components/animate-ui/components/buttons/ripple';
 
 const Portfolio = () => {
-  // Actual portfolio images from your uploads
-  const portfolioImages = Array.from({ length: 11 }, (_, i) => `/portfolio-images/portfolio-${i + 1}.jpeg`);
+  // Actual portfolio images from your uploads (now 12 images)
+  const portfolioImages = Array.from({ length: 12 }, (_, i) => `/portfolio-images/portfolio-${i + 1}.jpeg`);
 
-  // Create portfolio items with actual project names from your images
+  // Create portfolio items, cycling through the 12 images
   const portfolioItems = Array(24).fill(null).map((_, i) => ({
     id: i + 1,
     title: `Project ${i + 1}`,
     category: ['Portrait', 'Event', 'Commercial', 'Creative'][i % 4],
-    image: portfolioImages[i % portfolioImages.length], // Cycle through the 11 images
+    image: portfolioImages[i % portfolioImages.length], // Cycle through the 12 images
   }));
 
   return (
