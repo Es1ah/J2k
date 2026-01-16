@@ -16,19 +16,7 @@ const Index = () => {
   const whoWeAreRef = useRef(null);
 
   // Portfolio images array
-  const portfolioImages = [
-    '/portfolio-images/portfolio-1.jpeg',
-    '/portfolio-images/portfolio-2.jpeg',
-    '/portfolio-images/portfolio-3.jpeg',
-    '/portfolio-images/portfolio-4.jpeg',
-    '/portfolio-images/portfolio-5.jpeg',
-    '/portfolio-images/portfolio-6.jpeg',
-    '/portfolio-images/portfolio-7.jpeg',
-    '/portfolio-images/portfolio-8.jpeg',
-    '/portfolio-images/portfolio-9.jpeg',
-    '/portfolio-images/portfolio-10.jpeg',
-    '/portfolio-images/portfolio-11.jpeg',
-  ];
+  const portfolioImages = Array.from({ length: 11 }, (_, i) => `/portfolio-images/portfolio-${i + 1}.jpeg`);
 
   useEffect(() => {
     // Animation for "Capturing Your Most Precious Moments Forever" text
@@ -133,7 +121,7 @@ const Index = () => {
         <p className="text-lg font-sans mb-8 leading-relaxed">Explore our diverse portfolio!</p>
         <div className="overflow-hidden relative py-4">
           {/* First row sliding right */}
-          <div className="flex animate-slide-right mb-4">
+          <div className="flex mb-4 animate-slide-right">
             {[...Array(6)].map((_, i) => (
               <div
                 key={`right-${i}`}

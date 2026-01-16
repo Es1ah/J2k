@@ -1,7 +1,7 @@
 "use client";
 
 import React from 'react';
-import { Camera, Heart, Briefcase, Sparkles, GraduationCap } from 'lucide-react'; // Import GraduationCap
+import { Camera, Heart, Briefcase, Sparkles, GraduationCap, Palette } from 'lucide-react'; // Import Palette icon
 
 interface ServiceItemProps {
   icon: React.ElementType;
@@ -42,9 +42,14 @@ const ServicesSection: React.FC = () => {
       description: "Bring your imaginative concepts to life with our bespoke creative and editorial photography services.",
     },
     {
-      icon: GraduationCap, // New service icon
-      title: "Photography Training", // New service title
-      description: "Learn the art of photography from our expert team. From beginner basics to advanced techniques.", // New service description
+      icon: Palette, // New service icon
+      title: "Makeup Services", // New service title
+      description: "Professional makeup artistry for photoshoots, events, and special occasions to enhance your natural beauty.", // New service description
+    },
+    {
+      icon: GraduationCap,
+      title: "Photography Training",
+      description: "Learn the art of photography from our expert team. From beginner basics to advanced techniques.",
     },
   ];
 
@@ -57,7 +62,7 @@ const ServicesSection: React.FC = () => {
         <p className="text-lg font-sans max-w-3xl mx-auto leading-relaxed mb-12">
           At J2K Studios, we offer a comprehensive range of photography services tailored to meet your unique needs. We are dedicated to capturing your vision with creativity and precision.
         </p>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"> {/* Changed lg:grid-cols-4 to lg:grid-cols-3 */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, index) => (
             <ServiceItem key={index} icon={service.icon} title={service.title} description={service.description} />
           ))}

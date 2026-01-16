@@ -4,8 +4,10 @@ import React from 'react';
 import { RippleButton } from '@/components/animate-ui/components/buttons/ripple';
 
 const Portfolio = () => {
+  // Actual portfolio images from your uploads
   const portfolioImages = Array.from({ length: 11 }, (_, i) => `/portfolio-images/portfolio-${i + 1}.jpeg`);
 
+  // Create portfolio items with actual project names from your images
   const portfolioItems = Array(24).fill(null).map((_, i) => ({
     id: i + 1,
     title: `Project ${i + 1}`,
@@ -40,7 +42,11 @@ const Portfolio = () => {
             {portfolioItems.slice(0, 6).map((item) => (
               <div key={`right-${item.id}`} className="flex-shrink-0 w-80 h-64 mx-4 relative group">
                 <div className="w-full h-full bg-gradient-to-br from-gray-200 to-gray-400 rounded-lg shadow-lg overflow-hidden">
-                  <img src={item.image} alt={item.title} className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
+                  <img 
+                    src={item.image} 
+                    alt={item.title}
+                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                  />
                   <div className="absolute inset-0 bg-j2k-red/20 group-hover:bg-j2k-red/40 transition-all duration-300 flex items-center justify-center">
                     <div className="text-center">
                       <div className="w-16 h-16 bg-white/80 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -57,7 +63,11 @@ const Portfolio = () => {
             {portfolioItems.slice(0, 6).map((item) => (
               <div key={`right-dup-${item.id}`} className="flex-shrink-0 w-80 h-64 mx-4 relative group">
                 <div className="w-full h-full bg-gradient-to-br from-gray-200 to-gray-400 rounded-lg shadow-lg overflow-hidden">
-                  <img src={item.image} alt={item.title} className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
+                  <img 
+                    src={item.image} 
+                    alt={item.title}
+                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                  />
                   <div className="absolute inset-0 bg-j2k-red/20 group-hover:bg-j2k-red/40 transition-all duration-300 flex items-center justify-center">
                     <div className="text-center">
                       <div className="w-16 h-16 bg-white/80 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -77,7 +87,11 @@ const Portfolio = () => {
             {portfolioItems.slice(6, 12).map((item) => (
               <div key={`left-${item.id}`} className="flex-shrink-0 w-80 h-64 mx-4 relative group">
                 <div className="w-full h-full bg-gradient-to-br from-gray-300 to-gray-500 rounded-lg shadow-lg overflow-hidden">
-                  <img src={item.image} alt={item.title} className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
+                  <img 
+                    src={item.image} 
+                    alt={item.title}
+                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                  />
                   <div className="absolute inset-0 bg-j2k-red/20 group-hover:bg-j2k-red/40 transition-all duration-300 flex items-center justify-center">
                     <div className="text-center">
                       <div className="w-16 h-16 bg-white/80 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -94,7 +108,11 @@ const Portfolio = () => {
             {portfolioItems.slice(6, 12).map((item) => (
               <div key={`left-dup-${item.id}`} className="flex-shrink-0 w-80 h-64 mx-4 relative group">
                 <div className="w-full h-full bg-gradient-to-br from-gray-300 to-gray-500 rounded-lg shadow-lg overflow-hidden">
-                  <img src={item.image} alt={item.title} className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
+                  <img 
+                    src={item.image} 
+                    alt={item.title}
+                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                  />
                   <div className="absolute inset-0 bg-j2k-red/20 group-hover:bg-j2k-red/40 transition-all duration-300 flex items-center justify-center">
                     <div className="text-center">
                       <div className="w-16 h-16 bg-white/80 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -114,7 +132,11 @@ const Portfolio = () => {
             {portfolioItems.slice(12, 18).map((item) => (
               <div key={`right2-${item.id}`} className="flex-shrink-0 w-80 h-64 mx-4 relative group">
                 <div className="w-full h-full bg-gradient-to-br from-gray-400 to-gray-600 rounded-lg shadow-lg overflow-hidden">
-                  <img src={item.image} alt={item.title} className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
+                  <img 
+                    src={item.image} 
+                    alt={item.title}
+                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                  />
                   <div className="absolute inset-0 bg-j2k-red/20 group-hover:bg-j2k-red/40 transition-all duration-300 flex items-center justify-center">
                     <div className="text-center">
                       <div className="w-16 h-16 bg-white/80 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -131,7 +153,11 @@ const Portfolio = () => {
             {portfolioItems.slice(12, 18).map((item) => (
               <div key={`right2-dup-${item.id}`} className="flex-shrink-0 w-80 h-64 mx-4 relative group">
                 <div className="w-full h-full bg-gradient-to-br from-gray-400 to-gray-600 rounded-lg shadow-lg overflow-hidden">
-                  <img src={item.image} alt={item.title} className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
+                  <img 
+                    src={item.image} 
+                    alt={item.title}
+                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                  />
                   <div className="absolute inset-0 bg-j2k-red/20 group-hover:bg-j2k-red/40 transition-all duration-300 flex items-center justify-center">
                     <div className="text-center">
                       <div className="w-16 h-16 bg-white/80 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -151,7 +177,11 @@ const Portfolio = () => {
             {portfolioItems.slice(18, 24).map((item) => (
               <div key={`left2-${item.id}`} className="flex-shrink-0 w-80 h-64 mx-4 relative group">
                 <div className="w-full h-full bg-gradient-to-br from-gray-500 to-gray-700 rounded-lg shadow-lg overflow-hidden">
-                  <img src={item.image} alt={item.title} className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
+                  <img 
+                    src={item.image} 
+                    alt={item.title}
+                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                  />
                   <div className="absolute inset-0 bg-j2k-red/20 group-hover:bg-j2k-red/40 transition-all duration-300 flex items-center justify-center">
                     <div className="text-center">
                       <div className="w-16 h-16 bg-white/80 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -168,7 +198,11 @@ const Portfolio = () => {
             {portfolioItems.slice(18, 24).map((item) => (
               <div key={`left2-dup-${item.id}`} className="flex-shrink-0 w-80 h-64 mx-4 relative group">
                 <div className="w-full h-full bg-gradient-to-br from-gray-500 to-gray-700 rounded-lg shadow-lg overflow-hidden">
-                  <img src={item.image} alt={item.title} className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
+                  <img 
+                    src={item.image} 
+                    alt={item.title}
+                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                  />
                   <div className="absolute inset-0 bg-j2k-red/20 group-hover:bg-j2k-red/40 transition-all duration-300 flex items-center justify-center">
                     <div className="text-center">
                       <div className="w-16 h-16 bg-white/80 rounded-full flex items-center justify-center mx-auto mb-4">
