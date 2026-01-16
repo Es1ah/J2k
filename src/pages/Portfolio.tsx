@@ -3,10 +3,36 @@
 import React from 'react';
 import { RippleButton } from '@/components/animate-ui/components/buttons/ripple';
 
+// Import all 12 images directly
+import portfolio1 from '/portfolio-images/portfolio-1.jpg';
+import portfolio2 from '/portfolio-images/portfolio-2.jpg';
+import portfolio3 from '/portfolio-images/portfolio-3.jpg';
+import portfolio4 from '/portfolio-images/portfolio-4.jpg';
+import portfolio5 from '/portfolio-images/portfolio-5.jpg';
+import portfolio6 from '/portfolio-images/portfolio-6.jpg';
+import portfolio7 from '/portfolio-images/portfolio-7.jpg';
+import portfolio8 from '/portfolio-images/portfolio-8.jpg';
+import portfolio9 from '/portfolio-images/portfolio-9.jpg';
+import portfolio10 from '/portfolio-images/portfolio-10.jpg';
+import portfolio11 from '/portfolio-images/portfolio-11.jpg';
+import portfolio12 from '/portfolio-images/portfolio-12.jpg';
+
 const Portfolio = () => {
-  // ACTUAL portfolio images from your uploads (now 12 images)
-  // IMPORTANT: Using .jpg extension
-  const portfolioImages = Array.from({ length: 12 }, (_, i) => `/portfolio-images/portfolio-${i + 1}.jpg`);
+  // Define the portfolio images array using the imported modules
+  const portfolioImages = [
+    portfolio1,
+    portfolio2,
+    portfolio3,
+    portfolio4,
+    portfolio5,
+    portfolio6,
+    portfolio7,
+    portfolio8,
+    portfolio9,
+    portfolio10,
+    portfolio11,
+    portfolio12,
+  ];
 
   // Create portfolio items, cycling through the 12 images
   const portfolioItems = Array(24).fill(null).map((_, i) => ({
@@ -69,8 +95,14 @@ const Portfolio = () => {
                     alt={item.title}
                     className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-j2k-black opacity-0 group-hover:opacity-50 transition-opacity duration-300 flex items-center justify-center">
-                    <p className="text-j2k-white font-sans text-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300">View Project</p>
+                  <div className="absolute inset-0 bg-j2k-red/20 group-hover:bg-j2k-red/40 transition-all duration-300 flex items-center justify-center">
+                    <div className="text-center">
+                      <div className="w-16 h-16 bg-white/80 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span className="text-2xl font-bold text-j2k-red">{item.id}</span>
+                      </div>
+                      <h3 className="text-white font-bold text-lg">{item.title}</h3>
+                      <p className="text-white/80 text-sm">{item.category}</p>
+                    </div>
                   </div>
                 </div>
               </div>

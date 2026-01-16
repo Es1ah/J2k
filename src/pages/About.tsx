@@ -3,6 +3,10 @@
 import React from 'react';
 import { Users, Camera, Award } from 'lucide-react';
 
+// Import specific images for the About page
+import portfolio1 from '/portfolio-images/portfolio-1.jpg';
+import portfolio6 from '/portfolio-images/portfolio-6.jpg';
+
 const About = () => {
   return (
     <div className="bg-j2k-white text-j2k-black min-h-screen">
@@ -23,7 +27,7 @@ const About = () => {
         <div className="container mx-auto max-w-6xl grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <div className="md:order-2">
             <img
-              src="/portfolio-images/portfolio-1.jpg" // Using portfolio image 1 with .jpg
+              src={portfolio1} // Use the imported image
               alt="J2K Studios Team"
               className="rounded-lg shadow-xl object-cover w-full h-auto"
             />
@@ -70,7 +74,7 @@ const About = () => {
           <h2 className="text-4xl font-bold text-j2k-black mb-12 uppercase tracking-tight">Meet Our CEO</h2>
           <div className="flex flex-col items-center">
             <img
-              src="/portfolio-images/portfolio-6.jpg" // Using portfolio image 6 with .jpg for CEO
+              src={portfolio6} // Use the imported image
               alt="CEO of J2K Studios"
               className="w-48 h-48 rounded-full object-cover shadow-lg mb-6 border-4 border-j2k-red"
             />

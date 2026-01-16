@@ -8,6 +8,20 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Link } from 'react-router-dom';
 
+// Import all 12 images directly
+import portfolio1 from '/portfolio-images/portfolio-1.jpg';
+import portfolio2 from '/portfolio-images/portfolio-2.jpg';
+import portfolio3 from '/portfolio-images/portfolio-3.jpg';
+import portfolio4 from '/portfolio-images/portfolio-4.jpg';
+import portfolio5 from '/portfolio-images/portfolio-5.jpg';
+import portfolio6 from '/portfolio-images/portfolio-6.jpg';
+import portfolio7 from '/portfolio-images/portfolio-7.jpg';
+import portfolio8 from '/portfolio-images/portfolio-8.jpg';
+import portfolio9 from '/portfolio-images/portfolio-9.jpg';
+import portfolio10 from '/portfolio-images/portfolio-10.jpg';
+import portfolio11 from '/portfolio-images/portfolio-11.jpg';
+import portfolio12 from '/portfolio-images/portfolio-12.jpg';
+
 gsap.registerPlugin(ScrollTrigger);
 
 const Index = () => {
@@ -16,8 +30,20 @@ const Index = () => {
   const whoWeAreRef = useRef(null);
 
   // Portfolio images array (now 12 images)
-  // IMPORTANT: Using .jpg extension
-  const portfolioImages = Array.from({ length: 12 }, (_, i) => `/portfolio-images/portfolio-${i + 1}.jpg`);
+  const portfolioImages = [
+    portfolio1,
+    portfolio2,
+    portfolio3,
+    portfolio4,
+    portfolio5,
+    portfolio6,
+    portfolio7,
+    portfolio8,
+    portfolio9,
+    portfolio10,
+    portfolio11,
+    portfolio12,
+  ];
 
   useEffect(() => {
     // Animation for "Capturing Your Most Precious Moments Forever" text
