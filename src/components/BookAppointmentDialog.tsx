@@ -45,7 +45,7 @@ const BookAppointmentDialog: React.FC<BookAppointmentDialogProps> = ({ isOpen, o
 
   return (
     <Dialog open={isOpen} onOpenChange={onOpenChange}>
-      <DialogContent className="bg-j2k-white text-j2k-black border-j2k-red border-2 p-6 max-w-md rounded-none">
+      <DialogContent className="bg-j2k-white text-j2k-black border-j2k-red border-2 p-6 max-w-sm rounded-none"> {/* Changed max-w-md to max-w-sm */}
         <DialogHeader className="text-center">
           <DialogTitle className="text-2xl font-script text-j2k-red mb-2">Book a Session</DialogTitle>
           <DialogDescription className="text-j2k-black text-base font-sans">

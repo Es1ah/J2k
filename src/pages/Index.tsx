@@ -6,7 +6,7 @@ import BookAppointmentDialog from '@/components/BookAppointmentDialog';
 import DotGrid from '@/components/DotGrid';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { Link } from 'react-router-dom'; // Import Link
+import { Link } from 'react-router-dom';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -14,6 +14,8 @@ const Index = () => {
   const [isBookingDialogOpen, setIsBookingDialogOpen] = useState(false);
   const introTextRef = useRef(null);
   const whoWeAreRef = useRef(null);
+
+  const portfolioImages = Array.from({ length: 11 }, (_, i) => `/portfolio-images/portfolio-${i + 1}.jpeg`);
 
   useEffect(() => {
     // Animation for "Capturing Your Most Precious Moments Forever" text
@@ -125,7 +127,7 @@ const Index = () => {
                 className="flex-shrink-0 w-[300px] h-[200px] relative bg-gray-800 flex items-center justify-center border border-j2k-white p-2 overflow-hidden group mx-2"
               >
                 <img
-                  src="/placeholder.svg"
+                  src={portfolioImages[i % portfolioImages.length]} // Use actual portfolio images
                   alt={`Gallery Item ${i + 1}`}
                   className="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                 />
@@ -141,7 +143,7 @@ const Index = () => {
                 className="flex-shrink-0 w-[300px] h-[200px] relative bg-gray-800 flex items-center justify-center border border-j2k-white p-2 overflow-hidden group mx-2"
               >
                 <img
-                  src="/placeholder.svg"
+                  src={portfolioImages[i % portfolioImages.length]} // Use actual portfolio images
                   alt={`Gallery Item ${i + 1}`}
                   className="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                 />
@@ -160,8 +162,8 @@ const Index = () => {
                 className="flex-shrink-0 w-[300px] h-[200px] relative bg-gray-800 flex items-center justify-center border border-j2k-white p-2 overflow-hidden group mx-2"
               >
                 <img
-                  src="/placeholder.svg"
-                  alt={`Gallery Item ${i + 1}`}
+                  src={portfolioImages[(i + 6) % portfolioImages.length]} // Use actual portfolio images, offset for variety
+                  alt={`Gallery Item ${i + 7}`}
                   className="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-j2k-black opacity-0 group-hover:opacity-50 transition-opacity duration-300 flex items-center justify-center">
@@ -176,8 +178,8 @@ const Index = () => {
                 className="flex-shrink-0 w-[300px] h-[200px] relative bg-gray-800 flex items-center justify-center border border-j2k-white p-2 overflow-hidden group mx-2"
               >
                 <img
-                  src="/placeholder.svg"
-                  alt={`Gallery Item ${i + 1}`}
+                  src={portfolioImages[(i + 6) % portfolioImages.length]} // Use actual portfolio images, offset for variety
+                  alt={`Gallery Item ${i + 7}`}
                   className="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-j2k-black opacity-0 group-hover:opacity-50 transition-opacity duration-300 flex items-center justify-center">
@@ -187,7 +189,7 @@ const Index = () => {
             ))}
           </div>
         </div>
-        <Link to="/portfolio"> {/* Wrap RippleButton with Link */}
+        <Link to="/portfolio">
           <RippleButton className="mt-12 bg-j2k-red hover:bg-j2k-red/80 text-j2k-white text-lg px-8 py-4 rounded-none shadow-lg">
             View All Portfolio
           </RippleButton>

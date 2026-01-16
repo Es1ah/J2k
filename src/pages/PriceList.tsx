@@ -1,9 +1,10 @@
 "use client";
 
-import React from 'react';
-import { RippleButton } from '@/components/animate-ui/components/buttons/ripple'; // Import RippleButton
+import React, { useState } from 'react';
+import { RippleButton } from '@/components/animate-ui/components/buttons/ripple';
 import { Link } from 'react-router-dom';
 import ServicesSection from '@/components/ServicesSection';
+import BookAppointmentDialog from '@/components/BookAppointmentDialog'; // Import BookAppointmentDialog
 
 interface PackageItem {
   id: string;
@@ -37,6 +38,8 @@ const priceList: PackageCategory[] = [
 ];
 
 const PriceList = () => {
+  const [isBookingDialogOpen, setIsBookingDialogOpen] = useState(false); // State for the dialog
+
   return (
     <div className="min-h-screen bg-j2k-white text-j2k-black">
       <ServicesSection />
@@ -62,11 +65,13 @@ const PriceList = () => {
                     <RippleButton variant="outline" className="border-j2k-red text-j2k-red hover:bg-j2k-red hover:text-j2k-white rounded-none">
                       Add to cart
                     </RippleButton>
-                    <Link to="/book-a-session">
-                      <RippleButton variant="j2kRed" className="rounded-none">
-                        Book now
-                      </RippleButton>
-                    </Link>
+                    <RippleButton
+                      variant="j2kRed"
+                      className="rounded-none"
+                      onClick={() => setIsBookingDialogOpen(true)} // Open dialog on click
+                    >
+                      Book now
+                    </RippleButton>
                   </div>
                 </div>
               ))}
@@ -74,6 +79,7 @@ const PriceList = () => {
           </div>
         ))}
       </div>
+      <BookAppointmentDialog isOpen={isBookingDialogOpen} onOpenChange={setIsBookingDialogOpen} /> {/* Render the dialog */}
     </div>
   );
 };
