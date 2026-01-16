@@ -16,7 +16,8 @@ const Index = () => {
   const whoWeAreRef = useRef(null);
 
   // Portfolio images array (now 12 images)
-  const portfolioImages = Array.from({ length: 12 }, (_, i) => `/portfolio-images/portfolio-${i + 1}.jpeg`);
+  // IMPORTANT: Using .jpg extension
+  const portfolioImages = Array.from({ length: 12 }, (_, i) => `/portfolio-images/portfolio-${i + 1}.jpg`);
 
   useEffect(() => {
     // Animation for "Capturing Your Most Precious Moments Forever" text
@@ -121,7 +122,7 @@ const Index = () => {
         <p className="text-lg font-sans mb-8 leading-relaxed">Explore our diverse portfolio!</p>
         <div className="overflow-hidden relative py-4">
           {/* First row sliding right */}
-          <div className="flex animate-slide-right mb-4">
+          <div className="flex mb-4 animate-slide-right">
             {[...Array(6)].map((_, i) => (
               <div
                 key={`right-${i}`}

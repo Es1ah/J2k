@@ -4,8 +4,9 @@ import React from 'react';
 import { RippleButton } from '@/components/animate-ui/components/buttons/ripple';
 
 const Portfolio = () => {
-  // Actual portfolio images from your uploads (now 12 images)
-  const portfolioImages = Array.from({ length: 12 }, (_, i) => `/portfolio-images/portfolio-${i + 1}.jpeg`);
+  // ACTUAL portfolio images from your uploads (now 12 images)
+  // IMPORTANT: Using .jpg extension
+  const portfolioImages = Array.from({ length: 12 }, (_, i) => `/portfolio-images/portfolio-${i + 1}.jpg`);
 
   // Create portfolio items, cycling through the 12 images
   const portfolioItems = Array(24).fill(null).map((_, i) => ({
@@ -68,14 +69,8 @@ const Portfolio = () => {
                     alt={item.title}
                     className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-j2k-red/20 group-hover:bg-j2k-red/40 transition-all duration-300 flex items-center justify-center">
-                    <div className="text-center">
-                      <div className="w-16 h-16 bg-white/80 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <span className="text-2xl font-bold text-j2k-red">{item.id}</span>
-                      </div>
-                      <h3 className="text-white font-bold text-lg">{item.title}</h3>
-                      <p className="text-white/80 text-sm">{item.category}</p>
-                    </div>
+                  <div className="absolute inset-0 bg-j2k-black opacity-0 group-hover:opacity-50 transition-opacity duration-300 flex items-center justify-center">
+                    <p className="text-j2k-white font-sans text-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300">View Project</p>
                   </div>
                 </div>
               </div>
