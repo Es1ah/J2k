@@ -138,7 +138,7 @@ const Index = () => {
           Who We Are
         </h2>
         <p className="text-xl md:text-2xl font-sans max-w-4xl mx-auto leading-relaxed">
-          At J2K Studios, we believe every moment tells a story. We are a team of passionate photographers dedicated to capturing the raw emotion, intricate details, and unforgettable memories of your life's most significant events. From the intimate glance of a wedding couple to the bold statement of a commercial brand, we bring a cinematic and candid style to every shot, ensuring your story is told beautifully and authentically.
+          At J2K Studios, we believe every Every smile. Every milestone. Every memory. We’re creating a space where your special moments come alive.
         </p>
       </section>
 
@@ -148,7 +148,7 @@ const Index = () => {
         <p className="text-lg font-sans mb-8 leading-relaxed">Explore our diverse portfolio!</p>
         <div className="overflow-hidden relative py-4">
           {/* First row sliding right */}
-          <div className="flex mb-4 animate-slide-right">
+          <div className="flex animate-slide-right mb-4">
             {[...Array(6)].map((_, i) => (
               <div
                 key={`right-${i}`}
