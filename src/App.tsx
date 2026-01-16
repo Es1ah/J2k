@@ -8,7 +8,8 @@ import NotFound from "./pages/NotFound";
 import Layout from "./components/Layout";
 import PriceList from "./pages/PriceList";
 import Contact from "./pages/Contact";
-import Portfolio from "./pages/Portfolio"; // Import the new Portfolio component
+import Portfolio from "./pages/Portfolio";
+import ScrollToTop from "./components/ScrollToTop"; // Import the new ScrollToTop component
 
 const queryClient = new QueryClient();
 
@@ -18,12 +19,13 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <ScrollToTop /> {/* Add ScrollToTop here */}
         <Layout>
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/price-list" element={<PriceList />} />
             <Route path="/contact" element={<Contact />} />
-            <Route path="/portfolio" element={<Portfolio />} /> {/* New route for Portfolio */}
+            <Route path="/portfolio" element={<Portfolio />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>

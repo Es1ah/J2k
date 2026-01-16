@@ -6,6 +6,7 @@ import BookAppointmentDialog from '@/components/BookAppointmentDialog';
 import DotGrid from '@/components/DotGrid';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { Link } from 'react-router-dom'; // Import Link
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -186,9 +187,11 @@ const Index = () => {
             ))}
           </div>
         </div>
-        <RippleButton className="mt-12 bg-j2k-red hover:bg-j2k-red/80 text-j2k-white text-lg px-8 py-4 rounded-none shadow-lg">
-          View All Portfolio
-        </RippleButton>
+        <Link to="/portfolio"> {/* Wrap RippleButton with Link */}
+          <RippleButton className="mt-12 bg-j2k-red hover:bg-j2k-red/80 text-j2k-white text-lg px-8 py-4 rounded-none shadow-lg">
+            View All Portfolio
+          </RippleButton>
+        </Link>
       </section>
 
       {/* Testimonials Placeholder */}
