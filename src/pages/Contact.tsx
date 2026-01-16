@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from 'react';
-import { RippleButton } from '@/components/animate-ui/components/buttons/ripple'; // Import RippleButton
+import { RippleButton } from '@/components/animate-ui/components/buttons/ripple'; // Using RippleButton for consistency
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
@@ -47,14 +47,20 @@ const Contact = () => {
     });
   };
 
-  const companyAddress = "45 Nouakchott street, University of Ilorin House, Wuse Zone 1 Abuja";
-  const companyPhone = "07040008833";
+  // UPDATED CONTACT INFORMATION
+  const companyAddress = "Cluster 3. Myles & Deens Light Shopping Complex, River Park Estate, Lugbe, Abuja.";
+  const companyPhone = "08113304473";
   const companyEmail = "info@j2kstudios.com";
+
+  // IMPORTANT: Replace YOUR_GOOGLE_MAPS_API_KEY with your actual Google Maps API key
+  const googleMapsEmbedUrl = `https://www.google.com/maps/embed/v1/place?key=YOUR_GOOGLE_MAPS_API_KEY&q=${encodeURIComponent(companyAddress)}`;
 
   return (
     <div className="bg-j2k-white text-j2k-black min-h-screen">
+      {/* Hero/Intro Section */}
       <section className="py-12 px-4 bg-gray-50">
         <div className="container mx-auto max-w-6xl grid grid-cols-1 md:grid-cols-2 gap-8">
+          {/* Left: Contact Us Info */}
           <div>
             <h1 className="text-4xl md:text-5xl font-extrabold text-j2k-black mb-4 uppercase tracking-tight">
               Contact Us
@@ -78,6 +84,7 @@ const Contact = () => {
             </div>
           </div>
 
+          {/* Right: Get in Touch Form */}
           <div className="bg-white p-6 rounded-lg shadow-lg border border-gray-200">
             <h2 className="text-2xl font-bold text-j2k-black mb-3">Get in Touch</h2>
             <p className="text-gray-600 mb-4">You can reach us anytime</p>
@@ -149,7 +156,7 @@ const Contact = () => {
               </div>
               <RippleButton
                 type="submit"
-                variant="j2kRed"
+                variant="j2kRed" // Ensure RippleButton is used here
                 className="w-full text-base py-2 rounded-none shadow-lg"
               >
                 Submit
@@ -162,13 +169,18 @@ const Contact = () => {
       {/* Map Section */}
       <section className="py-12 px-4 bg-gray-100">
         <div className="container mx-auto max-w-6xl grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-          {/* Static Map Image */}
-          <div className="h-80 rounded-lg overflow-hidden shadow-md flex items-center justify-center bg-gray-200">
-            <img
-              src="/j2k-map.png"
-              alt="J2K Studios Location Map"
-              className="w-full h-full object-cover"
-            />
+          {/* Live Map */}
+          <div className="h-80 rounded-lg overflow-hidden shadow-md">
+            <iframe
+              src={googleMapsEmbedUrl}
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
+              allowFullScreen={true}
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title="J2K Studios Location"
+            ></iframe>
           </div>
           {/* Location Details */}
           <div>
@@ -186,7 +198,7 @@ const Contact = () => {
         </div>
       </section>
 
-      {/* FAQ Section */}
+      {/* FAQ Section (keeping existing) */}
       <section className="py-12 px-4 bg-j2k-white">
         <div className="container mx-auto max-w-6xl">
           <h2 className="text-2xl font-bold text-j2k-black mb-6 text-center">Do you have any questions for us?</h2>

@@ -15,7 +15,20 @@ const Index = () => {
   const introTextRef = useRef(null);
   const whoWeAreRef = useRef(null);
 
-  const portfolioImages = Array.from({ length: 11 }, (_, i) => `/portfolio-images/portfolio-${i + 1}.jpeg`);
+  // Portfolio images array
+  const portfolioImages = [
+    '/portfolio-images/portfolio-1.jpeg',
+    '/portfolio-images/portfolio-2.jpeg',
+    '/portfolio-images/portfolio-3.jpeg',
+    '/portfolio-images/portfolio-4.jpeg',
+    '/portfolio-images/portfolio-5.jpeg',
+    '/portfolio-images/portfolio-6.jpeg',
+    '/portfolio-images/portfolio-7.jpeg',
+    '/portfolio-images/portfolio-8.jpeg',
+    '/portfolio-images/portfolio-9.jpeg',
+    '/portfolio-images/portfolio-10.jpeg',
+    '/portfolio-images/portfolio-11.jpeg',
+  ];
 
   useEffect(() => {
     // Animation for "Capturing Your Most Precious Moments Forever" text
@@ -127,7 +140,7 @@ const Index = () => {
                 className="flex-shrink-0 w-[300px] h-[200px] relative bg-gray-800 flex items-center justify-center border border-j2k-white p-2 overflow-hidden group mx-2"
               >
                 <img
-                  src={portfolioImages[i % portfolioImages.length]} // Use actual portfolio images
+                  src={portfolioImages[i % portfolioImages.length]}
                   alt={`Gallery Item ${i + 1}`}
                   className="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                 />
@@ -143,7 +156,7 @@ const Index = () => {
                 className="flex-shrink-0 w-[300px] h-[200px] relative bg-gray-800 flex items-center justify-center border border-j2k-white p-2 overflow-hidden group mx-2"
               >
                 <img
-                  src={portfolioImages[i % portfolioImages.length]} // Use actual portfolio images
+                  src={portfolioImages[i % portfolioImages.length]}
                   alt={`Gallery Item ${i + 1}`}
                   className="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                 />
@@ -162,7 +175,7 @@ const Index = () => {
                 className="flex-shrink-0 w-[300px] h-[200px] relative bg-gray-800 flex items-center justify-center border border-j2k-white p-2 overflow-hidden group mx-2"
               >
                 <img
-                  src={portfolioImages[(i + 6) % portfolioImages.length]} // Use actual portfolio images, offset for variety
+                  src={portfolioImages[(i + 6) % portfolioImages.length]}
                   alt={`Gallery Item ${i + 7}`}
                   className="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                 />
@@ -178,7 +191,7 @@ const Index = () => {
                 className="flex-shrink-0 w-[300px] h-[200px] relative bg-gray-800 flex items-center justify-center border border-j2k-white p-2 overflow-hidden group mx-2"
               >
                 <img
-                  src={portfolioImages[(i + 6) % portfolioImages.length]} // Use actual portfolio images, offset for variety
+                  src={portfolioImages[(i + 6) % portfolioImages.length]}
                   alt={`Gallery Item ${i + 7}`}
                   className="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                 />
@@ -200,7 +213,6 @@ const Index = () => {
       <section className="container mx-auto py-16 px-4 text-center">
         <h2 className="text-5xl md:text-6xl font-sans font-extrabold text-j2k-black mb-8 uppercase tracking-tight">What Our Clients Say</h2>
         <p className="text-lg font-sans leading-relaxed">Coming Soon: Hear from our happy clients!</p>
-        {/* Add testimonial carousel/grid here */}
       </section>
 
       <BookAppointmentDialog isOpen={isBookingDialogOpen} onOpenChange={setIsBookingDialogOpen} />

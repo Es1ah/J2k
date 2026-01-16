@@ -23,7 +23,7 @@ const About = () => {
         <div className="container mx-auto max-w-6xl grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <div className="md:order-2">
             <img
-              src="/hero-photos-clothesline.png" // Using an existing image for visual appeal
+              src="/portfolio-images/portfolio-1.jpeg" // Using portfolio image 1
               alt="J2K Studios Team"
               className="rounded-lg shadow-xl object-cover w-full h-auto"
             />
@@ -70,7 +70,7 @@ const About = () => {
           <h2 className="text-4xl font-bold text-j2k-black mb-12 uppercase tracking-tight">Meet Our CEO</h2>
           <div className="flex flex-col items-center">
             <img
-              src="/placeholder.svg" // Placeholder image for CEO
+              src="/portfolio-images/portfolio-6.jpeg" // Using portfolio image 6 for CEO
               alt="CEO of J2K Studios"
               className="w-48 h-48 rounded-full object-cover shadow-lg mb-6 border-4 border-j2k-red"
             />

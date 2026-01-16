@@ -1,9 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Facebook } from 'lucide-react'; // Keep Facebook from lucide-react
-import InstagramIcon from './InstagramIcon'; // Import the new InstagramIcon
+import { Facebook } from 'lucide-react';
+import InstagramIcon from './InstagramIcon';
 
 const Footer = () => {
+  const companyAddress = "Cluster 3. Myles & Deens Light Shopping Complex, River Park Estate, Lugbe, Abuja.";
+  const companyPhone = "08113304473";
+  const companyEmail = "info@j2kstudios.com";
+
   return (
     <footer className="bg-j2k-black text-j2k-white p-8 mt-auto">
       <div className="container mx-auto flex flex-col md:flex-row justify-between items-center text-center md:text-left">
@@ -13,8 +17,13 @@ const Footer = () => {
           </Link>
           <p className="text-sm font-sans">&copy; {new Date().getFullYear()} J2K Studios. All rights reserved.</p>
         </div>
-        <div className="flex space-x-6 mb-4 md:mb-0">
-          <InstagramIcon size={24} className="text-j2k-white hover:text-j2k-red transition-colors" /> {/* Use the new InstagramIcon */}
+        <div className="flex flex-col items-center md:items-start mb-4 md:mb-0 text-sm font-sans">
+          <p className="text-j2k-white mb-1">{companyAddress}</p>
+          <p className="text-j2k-white mb-1">Call: {companyPhone}</p>
+          <p className="text-j2k-white">Email: {companyEmail}</p>
+        </div>
+        <div className="flex space-x-6">
+          <InstagramIcon size={24} className="text-j2k-white hover:text-j2k-red transition-colors" />
           <Link to="#" className="text-j2k-white hover:text-j2k-red transition-colors" aria-label="Facebook">
             <Facebook size={24} />
           </Link>
