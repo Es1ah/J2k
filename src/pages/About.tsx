@@ -67,25 +67,6 @@ const About = () => {
           </div>
         </div>
       </section>
-
-      {/* Meet the CEO Section */}
-      <section className="py-16 px-4 bg-j2k-white">
-        <div className="container mx-auto max-w-4xl text-center">
-          <h2 className="text-4xl font-bold text-j2k-black mb-12 uppercase tracking-tight">Meet Our CEO</h2>
-          <div className="flex flex-col items-center">
-            <img
-              src={portfolio6} // Use the imported image
-              alt="CEO of J2K Studios"
-              className="w-48 h-48 rounded-full object-cover shadow-lg mb-6 border-4 border-j2k-red"
-            />
-            <h3 className="text-3xl font-script text-j2k-red mb-2">John Doe</h3>
-            <p className="text-xl font-semibold text-j2k-black mb-4">Founder & CEO</p>
-            <p className="text-lg font-sans text-gray-700 leading-relaxed max-w-2xl mx-auto">
-              John Doe, the visionary behind J2K Studios, embarked on his photographic journey over a decade ago with a single camera and an unyielding passion for capturing the human spirit. His dedication to craftsmanship and his ability to connect with clients on a personal level quickly set J2K Studios apart. John believes that photography is more than just taking pictures; it's about telling stories, preserving legacies, and creating art that resonates for generations. Under his leadership, J2K Studios continues to push creative boundaries and deliver unparalleled photographic experiences.
-            </p>
-          </div>
-        </div>
-      </section>
     </div>
   );
 };

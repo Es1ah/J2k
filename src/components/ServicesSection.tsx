@@ -60,7 +60,7 @@ const ServicesSection: React.FC = () => {
           Our Services
         </h2>
         <p className="text-lg font-sans max-w-3xl mx-auto leading-relaxed mb-12">
-          At J2K Studios, we offer a comprehensive range of photography services tailored to meet your unique needs. We are dedicated to capturing your vision with creativity and precision.
+          At J2k we Believe in Every smile. Every milestone and Every memory. Therefore We’re creating a space where your special moments come alive.
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, index) => (
