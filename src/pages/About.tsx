@@ -17,7 +17,7 @@ const About = () => {
             About J2K Studios
           </h1>
           <p className="text-lg md:text-xl font-sans leading-relaxed">
-            Capturing life's most precious moments with passion, precision, and a personal touch.
+            At J2k we Believe in Every smile. Every milestone and Every memory. Therefore We created a space where all your special moments comes alive.
           </p>
         </div>
       </section>
