@@ -9,7 +9,7 @@ interface InstagramIconProps {
 
 const InstagramIcon: React.FC<InstagramIconProps> = ({ className = "", size = 24 }) => {
   const handleInstagramClick = () => {
-    window.open("https://www.instagram.com/j2k_studios_?igsh=MXh4eWdjaG51dzk5eg==", "_blank");
+    window.open("https://www.instagram.com/j2k_studios_?igsh=bWU1Ym4zN3cxZmVm&utm_source=qr", "_blank");
   };
 
   return (
