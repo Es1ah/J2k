@@ -4,7 +4,7 @@ import React from 'react';
 import { Users, Camera, Award } from 'lucide-react';
 
 // Import specific images for the About page
-import aboutUsTeam from '/images/about-us-team.jpeg'; // Updated path to the new image location
+import aboutUsTeam from '/WhatsApp Image 2026-01-22 at 12.49.18 PM.jpeg'; // Updated path to the image in the public folder
 import portfolio6 from '/portfolio-images/portfolio-6.jpg';
 
 const About = () => {
