@@ -4,7 +4,7 @@ import React from 'react';
 import { Users, Camera, Award } from 'lucide-react';
 
 // Import specific images for the About page
-import aboutUsTeam from '/about-us-team.jpeg'; // Use the new imported image
+import aboutUsTeam from '/images/about-us-team.jpeg'; // Updated path to the new image location
 import portfolio6 from '/portfolio-images/portfolio-6.jpg';
 
 const About = () => {
@@ -27,7 +27,7 @@ const About = () => {
         <div className="container mx-auto max-w-6xl grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <div className="md:order-2">
             <img
-              src={aboutUsTeam} // Use the new imported image
+              src={aboutUsTeam} // Using the image from the new path
               alt="J2K Studios Team"
               className="rounded-lg shadow-xl object-cover w-full h-auto"
             />
