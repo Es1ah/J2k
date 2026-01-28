@@ -4,9 +4,9 @@ import React from 'react';
 import { Users, Camera, Award } from 'lucide-react';
 
 // Import specific images for the About page
-import aboutUsTeam from '/WhatsApp Image 2026-01-22 at 12.49.18 PM.jpeg'; // Updated path to the image in the public folder
+import aboutUsTeam from '/images/WhatsApp Image 2026-01-22 at 12.49.18 PM.jpeg'; // Updated path to the image in the public/images folder
 
-const About: React.FC = () => { // Added React.FC type
+const About: React.FC = () => {
   return (
     <div className="bg-j2k-white text-j2k-black min-h-screen">
       {/* Hero Section */}
