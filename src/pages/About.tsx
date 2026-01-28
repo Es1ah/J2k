@@ -4,7 +4,7 @@ import React from 'react';
 import { Users, Camera, Award } from 'lucide-react';
 
 // Import specific images for the About page
-import aboutUsTeam from '/images/WhatsApp Image 2026-01-22 at 12.49.18 PM.jpeg'; // Updated path to the image in the public/images folder
+import aboutUsTeam from '/images/WhatsApp Image 2026-01-22 at 12.49.18 PM.jpeg';
 
 const About: React.FC = () => {
   return (
@@ -24,11 +24,11 @@ const About: React.FC = () => {
       {/* Our Story Section */}
       <section className="py-16 px-4 bg-j2k-white">
         <div className="container mx-auto max-w-6xl grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-          <div className="md:order-2">
+          <div className="md:order-2 flex justify-center"> {/* Added flex justify-center to center the image */}
             <img
-              src={aboutUsTeam} // Using the image from the new path
+              src={aboutUsTeam}
               alt="J2K Studios Team"
-              className="rounded-lg shadow-xl object-cover w-full h-auto"
+              className="rounded-lg shadow-xl object-cover w-full h-auto max-w-lg" // Added max-w-lg to reduce size
             />
           </div>
           <div className="md:order-1 text-center md:text-left">
