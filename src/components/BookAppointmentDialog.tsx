@@ -67,11 +67,17 @@ const BookAppointmentDialog: React.FC<BookAppointmentDialogProps> = ({ isOpen, o
             Schedule your photography session with us
           </DialogDescription>
         </DialogHeader>
-        <form onSubmit={handleSubmit} className="grid gap-4 py-4">
+        <form 
+          onSubmit={handleSubmit} 
+          action="https://formspree.io/f/xojnawjw"
+          method="POST"
+          className="grid gap-4 py-4"
+        >
           <div>
             <Label htmlFor="name" className="text-j2k-black">Name</Label>
             <Input
               id="name"
+              name="name"
               placeholder="Your name"
               className="bg-j2k-white text-j2k-black border-j2k-red focus:ring-j2k-red rounded-none"
               value={formData.name}
@@ -83,6 +89,7 @@ const BookAppointmentDialog: React.FC<BookAppointmentDialogProps> = ({ isOpen, o
             <Label htmlFor="email" className="text-j2k-black">Email</Label>
             <Input
               id="email"
+              name="email"
               type="email"
               placeholder="Your email"
               className="bg-j2k-white text-j2k-black border-j2k-red focus:ring-j2k-red rounded-none"
@@ -95,6 +102,7 @@ const BookAppointmentDialog: React.FC<BookAppointmentDialogProps> = ({ isOpen, o
             <Label htmlFor="phone" className="text-j2k-black">Phone</Label>
             <Input
               id="phone"
+              name="phone"
               type="tel"
               placeholder="Your phone"
               className="bg-j2k-white text-j2k-black border-j2k-red focus:ring-j2k-red rounded-none"
@@ -107,6 +115,7 @@ const BookAppointmentDialog: React.FC<BookAppointmentDialogProps> = ({ isOpen, o
             <Label htmlFor="message" className="text-j2k-black">Message</Label>
             <Textarea
               id="message"
+              name="message"
               placeholder="Tell us about your session"
               className="bg-j2k-white text-j2k-black border-j2k-red focus:ring-j2k-red rounded-none min-h-[100px]"
               value={formData.message}
@@ -114,17 +123,16 @@ const BookAppointmentDialog: React.FC<BookAppointmentDialogProps> = ({ isOpen, o
               required
             />
           </div>
+          <div className="flex justify-center mt-4">
+            <RippleButton
+              type="submit"
+              variant="j2kRed"
+              className="text-lg px-8 py-2 shadow-lg rounded-none w-full"
+            >
+              Book Session
+            </RippleButton>
+          </div>
         </form>
-        <DialogFooter className="flex justify-center">
-          <RippleButton
-            type="submit"
-            variant="j2kRed"
-            className="text-lg px-8 py-2 shadow-lg rounded-none"
-            onClick={handleSubmit}
-          >
-            Book Session
-          </RippleButton>
-        </DialogFooter>
       </DialogContent>
     </Dialog>
   );

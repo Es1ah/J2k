@@ -106,12 +106,18 @@ const Contact = () => {
           <div className="bg-white p-8 rounded-none shadow-2xl border-t-4 border-j2k-red animate-fade-in-up delay-200">
             <h2 className="text-2xl font-bold text-j2k-black mb-2">Get in Touch</h2>
             <p className="text-gray-600 mb-6">We'll respond within 24 hours</p>
-            <form onSubmit={handleSubmit} className="space-y-4">
+            <form 
+              onSubmit={handleSubmit} 
+              action="https://formspree.io/f/xojnawjw"
+              method="POST"
+              className="space-y-4"
+            >
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
                   <Label htmlFor="firstName" className="text-xs uppercase tracking-widest font-bold mb-1 block">First Name</Label>
                   <Input
                     id="firstName"
+                    name="firstName"
                     placeholder="John"
                     className="rounded-none border-gray-300 focus:border-j2k-red focus:ring-j2k-red"
                     value={formData.firstName}
@@ -123,6 +129,7 @@ const Contact = () => {
                   <Label htmlFor="lastName" className="text-xs uppercase tracking-widest font-bold mb-1 block">Last Name</Label>
                   <Input
                     id="lastName"
+                    name="lastName"
                     placeholder="Doe"
                     className="rounded-none border-gray-300 focus:border-j2k-red focus:ring-j2k-red"
                     value={formData.lastName}
@@ -135,6 +142,7 @@ const Contact = () => {
                 <Label htmlFor="email" className="text-xs uppercase tracking-widest font-bold mb-1 block">Email Address</Label>
                 <Input
                   id="email"
+                  name="email"
                   type="email"
                   placeholder="john@example.com"
                   className="rounded-none border-gray-300 focus:border-j2k-red focus:ring-j2k-red"
@@ -147,6 +155,7 @@ const Contact = () => {
                 <Label htmlFor="phone" className="text-xs uppercase tracking-widest font-bold mb-1 block">Phone Number</Label>
                 <Input
                   id="phone"
+                  name="phone"
                   type="tel"
                   placeholder="+234 ..."
                   className="rounded-none border-gray-300 focus:border-j2k-red focus:ring-j2k-red"
@@ -159,6 +168,7 @@ const Contact = () => {
                 <Label htmlFor="message" className="text-xs uppercase tracking-widest font-bold mb-1 block">Your Message</Label>
                 <Textarea
                   id="message"
+                  name="message"
                   placeholder="Tell us about your project..."
                   className="rounded-none border-gray-300 focus:border-j2k-red focus:ring-j2k-red min-h-[120px]"
                   value={formData.message}
@@ -169,6 +179,7 @@ const Contact = () => {
               <div className="flex items-center space-x-2 py-2">
                 <Checkbox
                   id="agreeToTerms"
+                  name="agreeToTerms"
                   checked={formData.agreeToTerms}
                   onCheckedChange={(checked) => setFormData((prev) => ({ ...prev, agreeToTerms: !!checked }))}
                   className="border-gray-300 data-[state=checked]:bg-j2k-red data-[state=checked]:text-white rounded-none"

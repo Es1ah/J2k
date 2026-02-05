@@ -47,7 +47,9 @@ const EmailCapturePopup = () => {
     };
   }, [hasShown]);
 
-  const handleSubscribe = async () => {
+  const handleSubscribe = async (e?: React.FormEvent) => {
+    if (e) e.preventDefault();
+    
     if (email) {
       const response = await fetch("https://formspree.io/f/xojnawjw", {
         method: "POST",
@@ -83,9 +85,15 @@ const EmailCapturePopup = () => {
             Receive exclusive updates and 10% off your first session.
           </DialogDescription>
         </DialogHeader>
-        <div className="grid gap-4 py-4">
+        <form 
+          onSubmit={handleSubscribe}
+          action="https://formspree.io/f/xojnawjw"
+          method="POST"
+          className="grid gap-4 py-4"
+        >
           <Input
             id="email"
+            name="email"
             type="email"
             placeholder="Your email address"
             className="col-span-3 bg-j2k-white text-j2k-black border-j2k-red focus:ring-j2k-red rounded-none"
@@ -93,17 +101,16 @@ const EmailCapturePopup = () => {
             onChange={(e) => setEmail(e.target.value)}
             required
           />
-        </div>
-        <DialogFooter className="flex justify-center">
-          <RippleButton
-            type="submit"
-            variant="j2kRed"
-            className="text-lg px-8 py-2 shadow-lg rounded-none"
-            onClick={handleSubscribe}
-          >
-            Subscribe
-          </RippleButton>
-        </DialogFooter>
+          <div className="flex justify-center mt-2">
+            <RippleButton
+              type="submit"
+              variant="j2kRed"
+              className="text-lg px-8 py-2 shadow-lg rounded-none w-full"
+            >
+              Subscribe
+            </RippleButton>
+          </div>
+        </form>
       </DialogContent>
     </Dialog>
   );
