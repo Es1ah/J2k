@@ -28,24 +28,39 @@ const BookAppointmentDialog: React.FC<BookAppointmentDialogProps> = ({ isOpen, o
     message: '',
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Appointment booked:", formData);
-    toast.success("Appointment Request Sent!", {
-      description: "We'll contact you soon to confirm your session.",
+    
+    const response = await fetch("https://formspree.io/f/xojnawjw", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        ...formData,
+        _subject: `New Appointment Booking Request from ${formData.name}`
+      }),
     });
-    onOpenChange(false);
-    setFormData({
-      name: '',
-      email: '',
-      phone: '',
-      message: '',
-    });
+
+    if (response.ok) {
+      toast.success("Appointment Request Sent!", {
+        description: "We'll contact you soon to confirm your session.",
+      });
+      onOpenChange(false);
+      setFormData({
+        name: '',
+        email: '',
+        phone: '',
+        message: '',
+      });
+    } else {
+      toast.error("Failed to send request. Please try again.");
+    }
   };
 
   return (
     <Dialog open={isOpen} onOpenChange={onOpenChange}>
-      <DialogContent className="bg-j2k-white text-j2k-black border-j2k-red border-2 p-6 max-w-sm rounded-none"> {/* Changed max-w-md to max-w-sm */}
+      <DialogContent className="bg-j2k-white text-j2k-black border-j2k-red border-2 p-6 max-w-sm rounded-none">
         <DialogHeader className="text-center">
           <DialogTitle className="text-2xl font-script text-j2k-red mb-2">Book a Session</DialogTitle>
           <DialogDescription className="text-j2k-black text-base font-sans">
@@ -61,6 +76,7 @@ const BookAppointmentDialog: React.FC<BookAppointmentDialogProps> = ({ isOpen, o
               className="bg-j2k-white text-j2k-black border-j2k-red focus:ring-j2k-red rounded-none"
               value={formData.name}
               onChange={(e) => setFormData({...formData, name: e.target.value})}
+              required
             />
           </div>
           <div>
@@ -72,6 +88,7 @@ const BookAppointmentDialog: React.FC<BookAppointmentDialogProps> = ({ isOpen, o
               className="bg-j2k-white text-j2k-black border-j2k-red focus:ring-j2k-red rounded-none"
               value={formData.email}
               onChange={(e) => setFormData({...formData, email: e.target.value})}
+              required
             />
           </div>
           <div>
@@ -83,6 +100,7 @@ const BookAppointmentDialog: React.FC<BookAppointmentDialogProps> = ({ isOpen, o
               className="bg-j2k-white text-j2k-black border-j2k-red focus:ring-j2k-red rounded-none"
               value={formData.phone}
               onChange={(e) => setFormData({...formData, phone: e.target.value})}
+              required
             />
           </div>
           <div>
@@ -93,6 +111,7 @@ const BookAppointmentDialog: React.FC<BookAppointmentDialogProps> = ({ isOpen, o
               className="bg-j2k-white text-j2k-black border-j2k-red focus:ring-j2k-red rounded-none min-h-[100px]"
               value={formData.message}
               onChange={(e) => setFormData({...formData, message: e.target.value})}
+              required
             />
           </div>
         </form>

@@ -29,39 +29,51 @@ const Contact = () => {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!formData.agreeToTerms) {
       toast.error("Please agree to the terms and conditions.");
       return;
     }
-    console.log("Contact form submitted:", formData);
-    toast.success("Message sent!", {
-      description: "We'll get back to you shortly.",
+
+    const response = await fetch("https://formspree.io/f/xojnawjw", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        ...formData,
+        _subject: `New Contact Form Submission from ${formData.firstName} ${formData.lastName}`
+      }),
     });
-    setFormData({
-      firstName: '',
-      lastName: '',
-      email: '',
-      phone: '',
-      message: '',
-      agreeToTerms: false,
-    });
+
+    if (response.ok) {
+      toast.success("Message sent!", {
+        description: "We'll get back to you shortly.",
+      });
+      setFormData({
+        firstName: '',
+        lastName: '',
+        email: '',
+        phone: '',
+        message: '',
+        agreeToTerms: false,
+      });
+    } else {
+      toast.error("Failed to send message. Please try again later.");
+    }
   };
 
   const companyAddress = "Cluster 3. Myles & Deens Light Shopping Complex, River Park Estate, Lugbe, Abuja.";
   const companyPhone = "08113304473";
   const companyEmail = "info@j2kstudios.com";
 
-  // Coordinates for River Park Estate, Lugbe, Abuja
   const mapCoordinates: [number, number] = [8.9785, 7.3855];
 
   return (
     <div className="bg-j2k-white text-j2k-black min-h-screen">
-      {/* Hero/Intro Section */}
       <section className="py-12 px-4 bg-gray-50">
         <div className="container mx-auto max-w-6xl grid grid-cols-1 md:grid-cols-2 gap-8">
-          {/* Left: Contact Us Info */}
           <div className="animate-fade-in-up">
             <h1 className="text-4xl md:text-5xl font-extrabold text-j2k-black mb-4 uppercase tracking-tight">
               Contact Us
@@ -91,7 +103,6 @@ const Contact = () => {
             </div>
           </div>
 
-          {/* Right: Get in Touch Form */}
           <div className="bg-white p-8 rounded-none shadow-2xl border-t-4 border-j2k-red animate-fade-in-up delay-200">
             <h2 className="text-2xl font-bold text-j2k-black mb-2">Get in Touch</h2>
             <p className="text-gray-600 mb-6">We'll respond within 24 hours</p>
@@ -105,6 +116,7 @@ const Contact = () => {
                     className="rounded-none border-gray-300 focus:border-j2k-red focus:ring-j2k-red"
                     value={formData.firstName}
                     onChange={handleChange}
+                    required
                   />
                 </div>
                 <div>
@@ -115,6 +127,7 @@ const Contact = () => {
                     className="rounded-none border-gray-300 focus:border-j2k-red focus:ring-j2k-red"
                     value={formData.lastName}
                     onChange={handleChange}
+                    required
                   />
                 </div>
               </div>
@@ -127,6 +140,7 @@ const Contact = () => {
                   className="rounded-none border-gray-300 focus:border-j2k-red focus:ring-j2k-red"
                   value={formData.email}
                   onChange={handleChange}
+                  required
                 />
               </div>
               <div>
@@ -138,6 +152,7 @@ const Contact = () => {
                   className="rounded-none border-gray-300 focus:border-j2k-red focus:ring-j2k-red"
                   value={formData.phone}
                   onChange={handleChange}
+                  required
                 />
               </div>
               <div>
@@ -148,6 +163,7 @@ const Contact = () => {
                   className="rounded-none border-gray-300 focus:border-j2k-red focus:ring-j2k-red min-h-[120px]"
                   value={formData.message}
                   onChange={handleChange}
+                  required
                 />
               </div>
               <div className="flex items-center space-x-2 py-2">
@@ -173,7 +189,6 @@ const Contact = () => {
         </div>
       </section>
 
-      {/* Map Section */}
       <section className="py-16 px-4 bg-white">
         <div className="container mx-auto max-w-6xl">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">

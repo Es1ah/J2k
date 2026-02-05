@@ -10,7 +10,7 @@ import {
   DialogFooter,
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
-import { RippleButton } from "@/components/animate-ui/components/buttons/ripple"; // Removed RippleButtonRipples import
+import { RippleButton } from "@/components/animate-ui/components/buttons/ripple";
 import { toast } from "sonner";
 
 const EmailCapturePopup = () => {
@@ -47,14 +47,28 @@ const EmailCapturePopup = () => {
     };
   }, [hasShown]);
 
-  const handleSubscribe = () => {
+  const handleSubscribe = async () => {
     if (email) {
-      console.log("Subscribed email:", email);
-      toast.success("Thank you for subscribing!", {
-        description: "You'll receive exclusive updates and 10% off your first session.",
+      const response = await fetch("https://formspree.io/f/xojnawjw", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email,
+          _subject: "New Newsletter Subscription"
+        }),
       });
-      setIsOpen(false);
-      setEmail("");
+
+      if (response.ok) {
+        toast.success("Thank you for subscribing!", {
+          description: "You'll receive exclusive updates and 10% off your first session.",
+        });
+        setIsOpen(false);
+        setEmail("");
+      } else {
+        toast.error("Subscription failed. Please try again.");
+      }
     } else {
       toast.error("Please enter a valid email address.");
     }
@@ -77,17 +91,17 @@ const EmailCapturePopup = () => {
             className="col-span-3 bg-j2k-white text-j2k-black border-j2k-red focus:ring-j2k-red rounded-none"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
+            required
           />
         </div>
         <DialogFooter className="flex justify-center">
           <RippleButton
             type="submit"
-            variant="j2kRed" // Use the custom variant
+            variant="j2kRed"
             className="text-lg px-8 py-2 shadow-lg rounded-none"
             onClick={handleSubscribe}
           >
             Subscribe
-            {/* Removed <RippleButtonRipples /> as it's now handled internally by RippleButton */}
           </RippleButton>
         </DialogFooter>
       </DialogContent>
