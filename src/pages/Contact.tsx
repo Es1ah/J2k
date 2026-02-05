@@ -8,7 +8,7 @@ import { Label } from '@/components/ui/label';
 import { Checkbox } from '@/components/ui/checkbox';
 import { toast } from 'sonner';
 import { MapPin, Phone, Mail } from 'lucide-react';
-import MapComponent from '@/components/MapComponent'; // Import the new MapComponent
+import MapComponent from '@/components/MapComponent';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -21,7 +21,8 @@ const Contact = () => {
   });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { id, value, type, checked } = e.target as HTMLInputElement;
+    const { id, value, type } = e.target as HTMLInputElement;
+    const checked = (e.target as HTMLInputElement).checked;
     setFormData((prev) => ({
       ...prev,
       [id]: type === 'checkbox' ? checked : value,
@@ -52,9 +53,8 @@ const Contact = () => {
   const companyPhone = "08113304473";
   const companyEmail = "info@j2kstudios.com";
 
-  // Coordinates for the company address (approximate for Abuja, Nigeria)
-  // You might need to adjust these for the exact location of "River Park Estate, Lugbe, Abuja"
-  const mapCoordinates: [number, number] = [9.0112, 7.4970]; // Approximate coordinates for Abuja, Nigeria
+  // Coordinates for River Park Estate, Lugbe, Abuja
+  const mapCoordinates: [number, number] = [8.9785, 7.3855];
 
   return (
     <div className="bg-j2k-white text-j2k-black min-h-screen">
@@ -62,50 +62,56 @@ const Contact = () => {
       <section className="py-12 px-4 bg-gray-50">
         <div className="container mx-auto max-w-6xl grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* Left: Contact Us Info */}
-          <div>
+          <div className="animate-fade-in-up">
             <h1 className="text-4xl md:text-5xl font-extrabold text-j2k-black mb-4 uppercase tracking-tight">
               Contact Us
             </h1>
             <p className="text-base font-sans text-gray-700 mb-6 leading-relaxed">
               Email, call, or complete the form to learn how J2K Studios can help capture your precious moments.
             </p>
-            <div className="space-y-3 mb-6">
-              <div className="flex items-center text-base">
-                <Mail className="h-4 w-4 text-j2k-red mr-2" />
-                <a href={`mailto:${companyEmail}`} className="hover:underline">{companyEmail}</a>
+            <div className="space-y-4 mb-6">
+              <div className="flex items-center text-base group">
+                <div className="p-2 bg-j2k-red/10 rounded-full mr-3 group-hover:bg-j2k-red group-hover:text-white transition-colors">
+                  <Mail className="h-5 w-5" />
+                </div>
+                <a href={`mailto:${companyEmail}`} className="hover:text-j2k-red transition-colors">{companyEmail}</a>
               </div>
-              <div className="flex items-center text-base">
-                <Phone className="h-4 w-4 text-j2k-red mr-2" />
-                <a href={`tel:${companyPhone}`} className="hover:underline">{companyPhone}</a>
+              <div className="flex items-center text-base group">
+                <div className="p-2 bg-j2k-red/10 rounded-full mr-3 group-hover:bg-j2k-red group-hover:text-white transition-colors">
+                  <Phone className="h-5 w-5" />
+                </div>
+                <a href={`tel:${companyPhone}`} className="hover:text-j2k-red transition-colors">{companyPhone}</a>
               </div>
-              <div className="flex items-start text-base">
-                <MapPin className="h-4 w-4 text-j2k-red mr-2 mt-1 flex-shrink-0" />
-                <span>{companyAddress}</span>
+              <div className="flex items-start text-base group">
+                <div className="p-2 bg-j2k-red/10 rounded-full mr-3 group-hover:bg-j2k-red group-hover:text-white transition-colors mt-1">
+                  <MapPin className="h-5 w-5" />
+                </div>
+                <span className="max-w-xs">{companyAddress}</span>
               </div>
             </div>
           </div>
 
           {/* Right: Get in Touch Form */}
-          <div className="bg-white p-6 rounded-lg shadow-lg border border-gray-200">
-            <h2 className="text-2xl font-bold text-j2k-black mb-3">Get in Touch</h2>
-            <p className="text-gray-600 mb-4">You can reach us anytime</p>
-            <form onSubmit={handleSubmit} className="space-y-3">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+          <div className="bg-white p-8 rounded-none shadow-2xl border-t-4 border-j2k-red animate-fade-in-up delay-200">
+            <h2 className="text-2xl font-bold text-j2k-black mb-2">Get in Touch</h2>
+            <p className="text-gray-600 mb-6">We'll respond within 24 hours</p>
+            <form onSubmit={handleSubmit} className="space-y-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
-                  <Label htmlFor="firstName" className="sr-only">First Name</Label>
+                  <Label htmlFor="firstName" className="text-xs uppercase tracking-widest font-bold mb-1 block">First Name</Label>
                   <Input
                     id="firstName"
-                    placeholder="First name"
+                    placeholder="John"
                     className="rounded-none border-gray-300 focus:border-j2k-red focus:ring-j2k-red"
                     value={formData.firstName}
                     onChange={handleChange}
                   />
                 </div>
                 <div>
-                  <Label htmlFor="lastName" className="sr-only">Last Name</Label>
+                  <Label htmlFor="lastName" className="text-xs uppercase tracking-widest font-bold mb-1 block">Last Name</Label>
                   <Input
                     id="lastName"
-                    placeholder="Last name"
+                    placeholder="Doe"
                     className="rounded-none border-gray-300 focus:border-j2k-red focus:ring-j2k-red"
                     value={formData.lastName}
                     onChange={handleChange}
@@ -113,54 +119,54 @@ const Contact = () => {
                 </div>
               </div>
               <div>
-                <Label htmlFor="email" className="sr-only">Your email</Label>
+                <Label htmlFor="email" className="text-xs uppercase tracking-widest font-bold mb-1 block">Email Address</Label>
                 <Input
                   id="email"
                   type="email"
-                  placeholder="Your email"
+                  placeholder="john@example.com"
                   className="rounded-none border-gray-300 focus:border-j2k-red focus:ring-j2k-red"
                   value={formData.email}
                   onChange={handleChange}
                 />
               </div>
               <div>
-                <Label htmlFor="phone" className="sr-only">Phone number</Label>
+                <Label htmlFor="phone" className="text-xs uppercase tracking-widest font-bold mb-1 block">Phone Number</Label>
                 <Input
                   id="phone"
                   type="tel"
-                  placeholder="Phone number"
+                  placeholder="+234 ..."
                   className="rounded-none border-gray-300 focus:border-j2k-red focus:ring-j2k-red"
                   value={formData.phone}
                   onChange={handleChange}
                 />
               </div>
               <div>
-                <Label htmlFor="message" className="sr-only">How can we help?</Label>
+                <Label htmlFor="message" className="text-xs uppercase tracking-widest font-bold mb-1 block">Your Message</Label>
                 <Textarea
                   id="message"
-                  placeholder="How can we help?"
-                  className="rounded-none border-gray-300 focus:border-j2k-red focus:ring-j2k-red min-h-[100px]"
+                  placeholder="Tell us about your project..."
+                  className="rounded-none border-gray-300 focus:border-j2k-red focus:ring-j2k-red min-h-[120px]"
                   value={formData.message}
                   onChange={handleChange}
                 />
               </div>
-              <div className="flex items-center space-x-2">
+              <div className="flex items-center space-x-2 py-2">
                 <Checkbox
                   id="agreeToTerms"
                   checked={formData.agreeToTerms}
                   onCheckedChange={(checked) => setFormData((prev) => ({ ...prev, agreeToTerms: !!checked }))}
-                  className="border-gray-300 data-[state=checked]:bg-j2k-red data-[state=checked]:text-white"
+                  className="border-gray-300 data-[state=checked]:bg-j2k-red data-[state=checked]:text-white rounded-none"
                 />
-                <Label htmlFor="agreeToTerms" className="text-xs text-gray-600">
-                  By contacting us, you agree to our <a href="#" className="text-j2k-red hover:underline">Terms of service</a> and <a href="#" className="text-j2k-red hover:underline">Privacy Policy</a>
+                <Label htmlFor="agreeToTerms" className="text-xs text-gray-600 leading-tight">
+                  I agree to the <a href="#" className="text-j2k-red hover:underline">Terms of service</a> and <a href="#" className="text-j2k-red hover:underline">Privacy Policy</a>
                 </Label>
               </div>
               <RippleButton
                 type="submit"
                 variant="j2kRed"
-                className="w-full text-base py-2 rounded-none shadow-lg"
+                className="w-full text-base py-6 rounded-none shadow-lg font-bold uppercase tracking-widest"
               >
-                Submit
+                Send Message
               </RippleButton>
             </form>
           </div>
@@ -168,47 +174,26 @@ const Contact = () => {
       </section>
 
       {/* Map Section */}
-      <section className="py-12 px-4 bg-gray-100">
-        <div className="container mx-auto max-w-6xl grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-          {/* Live Map */}
-          <div className="h-80 rounded-lg overflow-hidden shadow-md">
-            <MapComponent position={mapCoordinates} popupText="J2K Studios" />
-          </div>
-          {/* Location Details */}
-          <div>
-            <h2 className="text-2xl font-bold text-j2k-black mb-3">Our Location</h2>
-            <p className="text-lg font-semibold text-gray-700 mb-2">Connecting Near and Far</p>
-            <div className="space-y-2 text-gray-600 text-base">
-              <p className="font-semibold">Headquarters</p>
-              <p>J2K Studios Inc.</p>
-              <p>{companyAddress}</p>
-              <a href={`https://www.openstreetmap.org/search?query=${encodeURIComponent(companyAddress)}`} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline flex items-center">
-                <MapPin className="h-4 w-4 mr-1" /> OpenStreetMap
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* FAQ Section (keeping existing) */}
-      <section className="py-12 px-4 bg-j2k-white">
+      <section className="py-16 px-4 bg-white">
         <div className="container mx-auto max-w-6xl">
-          <h2 className="text-2xl font-bold text-j2k-black mb-6 text-center">Do you have any questions for us?</h2>
-          <p className="text-base font-sans text-gray-700 mb-6 text-center max-w-2xl mx-auto">
-            If you have questions, we're here to help. Below are some common questions, or feel free to reach out directly.
-          </p>
-          <div className="space-y-3 max-w-3xl mx-auto">
-            <div className="border p-3 rounded-lg shadow-sm">
-              <h3 className="font-semibold text-base mb-1">What services do you offer?</h3>
-              <p className="text-gray-700 text-sm">We offer a wide range of photography services including portraits, events, commercial shoots, and more. Check our 'Services' page for details.</p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
+            <div className="md:col-span-2 h-[400px] shadow-2xl">
+              <MapComponent position={mapCoordinates} popupText="J2K Studios" />
             </div>
-            <div className="border p-3 rounded-lg shadow-sm">
-              <h3 className="font-semibold text-base mb-1">How can I book a session?</h3>
-              <p className="text-gray-700 text-sm">You can book a session directly through our 'Book a Session' button on the homepage or by contacting us via the form above.</p>
-            </div>
-            <div className="border p-3 rounded-lg shadow-sm">
-              <h3 className="font-semibold text-base mb-1">What are your pricing options?</h3>
-              <p className="text-gray-700 text-sm">Our detailed price list for various packages can be found on the 'Price List' page.</p>
+            <div className="bg-j2k-black text-j2k-white p-8 h-full flex flex-col justify-center">
+              <h2 className="text-3xl font-bold mb-4 uppercase tracking-tight">Visit Our Studio</h2>
+              <p className="text-gray-400 mb-6">Experience the magic in person at our Abuja headquarters.</p>
+              <div className="space-y-4">
+                <div>
+                  <p className="text-j2k-red font-bold uppercase text-xs tracking-widest mb-1">Address</p>
+                  <p className="text-sm">{companyAddress}</p>
+                </div>
+                <div>
+                  <p className="text-j2k-red font-bold uppercase text-xs tracking-widest mb-1">Hours</p>
+                  <p className="text-sm">Mon - Sat: 9:00 AM - 6:00 PM</p>
+                  <p className="text-sm">Sun: By Appointment Only</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>

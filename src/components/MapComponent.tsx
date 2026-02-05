@@ -1,18 +1,6 @@
 "use client";
 
 import React from 'react';
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
-import 'leaflet/dist/leaflet.css';
-import L from 'leaflet';
-
-// Fix for default icon issue
-// @ts-ignore
-delete L.Icon.Default.prototype._getIconUrl;
-L.Icon.Default.mergeOptions({
-  iconRetinaUrl: 'https://unpkg.com/leaflet@1.7.1/dist/images/marker-icon-2x.png',
-  iconUrl: 'https://unpkg.com/leaflet@1.7.1/dist/images/marker-icon.png',
-  shadowUrl: 'https://unpkg.com/leaflet@1.7.1/dist/images/marker-shadow.png',
-});
 
 interface MapComponentProps {
   position: [number, number];
@@ -20,22 +8,26 @@ interface MapComponentProps {
 }
 
 const MapComponent: React.FC<MapComponentProps> = ({ position, popupText }) => {
+  // Using an OpenStreetMap iframe for maximum stability and to avoid library conflicts
+  const [lat, lng] = position;
+  const mapUrl = `https://www.openstreetmap.org/export/embed.html?bbox=${lng-0.01}%2C${lat-0.01}%2C${lng+0.01}%2C${lat+0.01}&layer=mapnik&marker=${lat}%2C${lng}`;
+
   return (
-    <div className="h-full w-full min-h-[300px]">
-      <MapContainer 
-        center={position} 
-        zoom={13} 
-        scrollWheelZoom={false} 
-        style={{ height: '100%', width: '100%' }}
-      >
-        <TileLayer
-          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-        />
-        <Marker position={position}>
-          <Popup>{popupText}</Popup>
-        </Marker>
-      </MapContainer>
+    <div className="h-full w-full min-h-[300px] relative border-2 border-j2k-red/20">
+      <iframe
+        title="J2K Studios Location"
+        width="100%"
+        height="100%"
+        frameBorder="0"
+        scrolling="no"
+        marginHeight={0}
+        marginWidth={0}
+        src={mapUrl}
+        className="grayscale hover:grayscale-0 transition-all duration-500"
+      />
+      <div className="absolute bottom-2 right-2 bg-white/90 px-2 py-1 text-[10px] text-gray-500 rounded shadow-sm">
+        {popupText}
+      </div>
     </div>
   );
 };
