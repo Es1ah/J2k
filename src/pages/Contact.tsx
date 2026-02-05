@@ -1,13 +1,14 @@
 "use client";
 
 import React, { useState } from 'react';
-import { RippleButton } from '@/components/animate-ui/components/buttons/ripple'; // Using RippleButton for consistency
+import { RippleButton } from '@/components/animate-ui/components/buttons/ripple';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
 import { Checkbox } from '@/components/ui/checkbox';
 import { toast } from 'sonner';
 import { MapPin, Phone, Mail } from 'lucide-react';
+import MapComponent from '@/components/MapComponent'; // Import the new MapComponent
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -47,13 +48,13 @@ const Contact = () => {
     });
   };
 
-  // UPDATED CONTACT INFORMATION
   const companyAddress = "Cluster 3. Myles & Deens Light Shopping Complex, River Park Estate, Lugbe, Abuja.";
   const companyPhone = "08113304473";
   const companyEmail = "info@j2kstudios.com";
 
-  // IMPORTANT: Replace YOUR_GOOGLE_MAPS_API_KEY with your actual Google Maps API key
-  const googleMapsEmbedUrl = `https://www.google.com/maps/embed/v1/place?key=YOUR_GOOGLE_MAPS_API_KEY&q=${encodeURIComponent(companyAddress)}`;
+  // Coordinates for the company address (approximate for Abuja, Nigeria)
+  // You might need to adjust these for the exact location of "River Park Estate, Lugbe, Abuja"
+  const mapCoordinates: [number, number] = [9.0112, 7.4970]; // Approximate coordinates for Abuja, Nigeria
 
   return (
     <div className="bg-j2k-white text-j2k-black min-h-screen">
@@ -156,7 +157,7 @@ const Contact = () => {
               </div>
               <RippleButton
                 type="submit"
-                variant="j2kRed" // Ensure RippleButton is used here
+                variant="j2kRed"
                 className="w-full text-base py-2 rounded-none shadow-lg"
               >
                 Submit
@@ -171,16 +172,7 @@ const Contact = () => {
         <div className="container mx-auto max-w-6xl grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
           {/* Live Map */}
           <div className="h-80 rounded-lg overflow-hidden shadow-md">
-            <iframe
-              src={googleMapsEmbedUrl}
-              width="100%"
-              height="100%"
-              style={{ border: 0 }}
-              allowFullScreen={true}
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              title="J2K Studios Location"
-            ></iframe>
+            <MapComponent position={mapCoordinates} popupText="J2K Studios" />
           </div>
           {/* Location Details */}
           <div>
@@ -190,8 +182,8 @@ const Contact = () => {
               <p className="font-semibold">Headquarters</p>
               <p>J2K Studios Inc.</p>
               <p>{companyAddress}</p>
-              <a href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(companyAddress)}`} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline flex items-center">
-                <MapPin className="h-4 w-4 mr-1" /> Open Google Maps
+              <a href={`https://www.openstreetmap.org/search?query=${encodeURIComponent(companyAddress)}`} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline flex items-center">
+                <MapPin className="h-4 w-4 mr-1" /> OpenStreetMap
               </a>
             </div>
           </div>
