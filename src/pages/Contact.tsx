@@ -36,7 +36,7 @@ const Contact = () => {
       return;
     }
 
-    const response = await fetch("https://formspree.io/f/xojnawjw", {
+    const response = await fetch("https://formspree.io/f/xjgebrwq", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -108,7 +108,7 @@ const Contact = () => {
             <p className="text-gray-600 mb-6">We'll respond within 24 hours</p>
             <form 
               onSubmit={handleSubmit} 
-              action="https://formspree.io/f/xojnawjw"
+              action="https://formspree.io/f/xjgebrwq"
               method="POST"
               className="space-y-4"
             >

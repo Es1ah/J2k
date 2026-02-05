@@ -31,7 +31,7 @@ const BookAppointmentDialog: React.FC<BookAppointmentDialogProps> = ({ isOpen, o
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    const response = await fetch("https://formspree.io/f/xojnawjw", {
+    const response = await fetch("https://formspree.io/f/xjgebrwq", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -69,7 +69,7 @@ const BookAppointmentDialog: React.FC<BookAppointmentDialogProps> = ({ isOpen, o
         </DialogHeader>
         <form 
           onSubmit={handleSubmit} 
-          action="https://formspree.io/f/xojnawjw"
+          action="https://formspree.io/f/xjgebrwq"
           method="POST"
           className="grid gap-4 py-4"
         >

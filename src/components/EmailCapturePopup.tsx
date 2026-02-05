@@ -51,7 +51,7 @@ const EmailCapturePopup = () => {
     if (e) e.preventDefault();
     
     if (email) {
-      const response = await fetch("https://formspree.io/f/xojnawjw", {
+      const response = await fetch("https://formspree.io/f/xjgebrwq", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -78,7 +78,7 @@ const EmailCapturePopup = () => {
 
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
-      <DialogContent className="bg-j2k-black text-j2k-white border-j2k-white border-2 p-6 max-w-md rounded-none">
+      <DialogContent className="bg-j2k-black text-j2k-white border-j2k-white border-2 p-6 max-md rounded-none">
         <DialogHeader className="text-center">
           <DialogTitle className="text-2xl font-script text-j2k-red mb-2">Join the J2K Inner Circle</DialogTitle>
           <DialogDescription className="text-j2k-white text-base font-sans">
@@ -87,7 +87,7 @@ const EmailCapturePopup = () => {
         </DialogHeader>
         <form 
           onSubmit={handleSubscribe}
-          action="https://formspree.io/f/xojnawjw"
+          action="https://formspree.io/f/xjgebrwq"
           method="POST"
           className="grid gap-4 py-4"
         >
