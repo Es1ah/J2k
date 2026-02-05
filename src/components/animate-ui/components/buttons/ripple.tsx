@@ -67,19 +67,8 @@ interface Ripple {
 const RippleEffect: React.FC = () => {
   const [ripples, setRipples] = React.useState<Ripple[]>([]);
 
-  const addRipple = React.useCallback((event: React.MouseEvent<HTMLButtonElement>) => {
-    const button = event.currentTarget;
-    const rect = button.getBoundingClientRect();
-    const size = Math.max(rect.width, rect.height);
-    const x = event.clientX - rect.left - size / 2;
-    const y = event.clientY - rect.top - size / 2;
-
-    const newRipple = { x, y, size, id: Date.now() };
-    setRipples((prevRipples) => [...prevRipples, newRipple]);
-  }, []);
-
   React.useEffect(() => {
-    const handleClick = (e: Event) => {
+    const handleClick = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
       const button = target.closest('button');
       if (button?.contains(target)) {
@@ -112,21 +101,23 @@ const RippleEffect: React.FC = () => {
           onAnimationEnd={() => setRipples((prev) => prev.filter((r) => r.id !== ripple.id))}
         />
       ))}
-      <style jsx="true">{`
-        @keyframes ripple {
-          from {
-            transform: scale(0);
-            opacity: 0.3;
+      <style>
+        {`
+          @keyframes ripple {
+            from {
+              transform: scale(0);
+              opacity: 0.3;
+            }
+            to {
+              transform: scale(4);
+              opacity: 0;
+            }
           }
-          to {
-            transform: scale(4);
-            opacity: 0;
+          .animate-ripple {
+            animation: ripple 0.6s linear forwards;
           }
-        }
-        .animate-ripple {
-          animation: ripple 0.6s linear forwards;
-        }
-      `}</style>
+        `}
+      </style>
     </>
   );
 };
