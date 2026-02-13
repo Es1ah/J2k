@@ -75,10 +75,7 @@ const Portfolio = () => {
                     className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-j2k-red/20 group-hover:bg-j2k-red/40 transition-all duration-300 flex items-center justify-center">
-                    <div className="text-center">
-                      <h3 className="text-white font-bold text-lg">{item.title}</h3>
-                      <p className="text-white/80 text-sm">{item.category}</p>
-                    </div>
+                    {/* Text removed as requested */}
                   </div>
                 </div>
               </div>
@@ -93,10 +90,7 @@ const Portfolio = () => {
                     className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-j2k-red/20 group-hover:bg-j2k-red/40 transition-all duration-300 flex items-center justify-center">
-                    <div className="text-center">
-                      <h3 className="text-white font-bold text-lg">{item.title}</h3>
-                      <p className="text-white/80 text-sm">{item.category}</p>
-                    </div>
+                    {/* Text removed as requested */}
                   </div>
                 </div>
               </div>
@@ -114,10 +108,7 @@ const Portfolio = () => {
                     className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-j2k-red/20 group-hover:bg-j2k-red/40 transition-all duration-300 flex items-center justify-center">
-                    <div className="text-center">
-                      <h3 className="text-white font-bold text-lg">{item.title}</h3>
-                      <p className="text-white/80 text-sm">{item.category}</p>
-                    </div>
+                    {/* Text removed as requested */}
                   </div>
                 </div>
               </div>
@@ -132,10 +123,7 @@ const Portfolio = () => {
                     className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-j2k-red/20 group-hover:bg-j2k-red/40 transition-all duration-300 flex items-center justify-center">
-                    <div className="text-center">
-                      <h3 className="text-white font-bold text-lg">{item.title}</h3>
-                      <p className="text-white/80 text-sm">{item.category}</p>
-                    </div>
+                    {/* Text removed as requested */}
                   </div>
                 </div>
               </div>
@@ -153,10 +141,7 @@ const Portfolio = () => {
                     className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-j2k-red/20 group-hover:bg-j2k-red/40 transition-all duration-300 flex items-center justify-center">
-                    <div className="text-center">
-                      <h3 className="text-white font-bold text-lg">{item.title}</h3>
-                      <p className="text-white/80 text-sm">{item.category}</p>
-                    </div>
+                    {/* Text removed as requested */}
                   </div>
                 </div>
               </div>
@@ -171,10 +156,7 @@ const Portfolio = () => {
                     className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-j2k-red/20 group-hover:bg-j2k-red/40 transition-all duration-300 flex items-center justify-center">
-                    <div className="text-center">
-                      <h3 className="text-white font-bold text-lg">{item.title}</h3>
-                      <p className="text-white/80 text-sm">{item.category}</p>
-                    </div>
+                    {/* Text removed as requested */}
                   </div>
                 </div>
               </div>
@@ -192,10 +174,7 @@ const Portfolio = () => {
                     className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-j2k-red/20 group-hover:bg-j2k-red/40 transition-all duration-300 flex items-center justify-center">
-                    <div className="text-center">
-                      <h3 className="text-white font-bold text-lg">{item.title}</h3>
-                      <p className="text-white/80 text-sm">{item.category}</p>
-                    </div>
+                    {/* Text removed as requested */}
                   </div>
                 </div>
               </div>
@@ -210,10 +189,7 @@ const Portfolio = () => {
                     className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-j2k-red/20 group-hover:bg-j2k-red/40 transition-all duration-300 flex items-center justify-center">
-                    <div className="text-center">
-                      <h3 className="text-white font-bold text-lg">{item.title}</h3>
-                      <p className="text-white/80 text-sm">{item.category}</p>
-                    </div>
+                    {/* Text removed as requested */}
                   </div>
                 </div>
               </div>
