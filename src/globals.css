@@ -131,10 +131,10 @@
 /* Apply animations using Tailwind's @layer utilities */
 @layer utilities {
   .animate-slide-right {
-    animation: slide-right 30s linear infinite; /* Adjust duration as needed */
+    animation: slide-right 15s linear infinite; /* Increased speed from 30s to 15s */
   }
   .animate-slide-left {
-    animation: slide-left 30s linear infinite; /* Adjust duration as needed */
+    animation: slide-left 15s linear infinite; /* Increased speed from 30s to 15s */
   }
 
   /* Enhanced text animations */

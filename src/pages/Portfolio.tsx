@@ -76,9 +76,6 @@ const Portfolio = () => {
                   />
                   <div className="absolute inset-0 bg-j2k-red/20 group-hover:bg-j2k-red/40 transition-all duration-300 flex items-center justify-center">
                     <div className="text-center">
-                      <div className="w-16 h-16 bg-white/80 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <span className="text-2xl font-bold text-j2k-red">{item.id}</span>
-                      </div>
                       <h3 className="text-white font-bold text-lg">{item.title}</h3>
                       <p className="text-white/80 text-sm">{item.category}</p>
                     </div>
@@ -97,9 +94,6 @@ const Portfolio = () => {
                   />
                   <div className="absolute inset-0 bg-j2k-red/20 group-hover:bg-j2k-red/40 transition-all duration-300 flex items-center justify-center">
                     <div className="text-center">
-                      <div className="w-16 h-16 bg-white/80 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <span className="text-2xl font-bold text-j2k-red">{item.id}</span>
-                      </div>
                       <h3 className="text-white font-bold text-lg">{item.title}</h3>
                       <p className="text-white/80 text-sm">{item.category}</p>
                     </div>
@@ -121,9 +115,6 @@ const Portfolio = () => {
                   />
                   <div className="absolute inset-0 bg-j2k-red/20 group-hover:bg-j2k-red/40 transition-all duration-300 flex items-center justify-center">
                     <div className="text-center">
-                      <div className="w-16 h-16 bg-white/80 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <span className="text-2xl font-bold text-j2k-red">{item.id}</span>
-                      </div>
                       <h3 className="text-white font-bold text-lg">{item.title}</h3>
                       <p className="text-white/80 text-sm">{item.category}</p>
                     </div>
@@ -142,9 +133,6 @@ const Portfolio = () => {
                   />
                   <div className="absolute inset-0 bg-j2k-red/20 group-hover:bg-j2k-red/40 transition-all duration-300 flex items-center justify-center">
                     <div className="text-center">
-                      <div className="w-16 h-16 bg-white/80 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <span className="text-2xl font-bold text-j2k-red">{item.id}</span>
-                      </div>
                       <h3 className="text-white font-bold text-lg">{item.title}</h3>
                       <p className="text-white/80 text-sm">{item.category}</p>
                     </div>
@@ -166,9 +154,6 @@ const Portfolio = () => {
                   />
                   <div className="absolute inset-0 bg-j2k-red/20 group-hover:bg-j2k-red/40 transition-all duration-300 flex items-center justify-center">
                     <div className="text-center">
-                      <div className="w-16 h-16 bg-white/80 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <span className="text-2xl font-bold text-j2k-red">{item.id}</span>
-                      </div>
                       <h3 className="text-white font-bold text-lg">{item.title}</h3>
                       <p className="text-white/80 text-sm">{item.category}</p>
                     </div>
@@ -187,9 +172,6 @@ const Portfolio = () => {
                   />
                   <div className="absolute inset-0 bg-j2k-red/20 group-hover:bg-j2k-red/40 transition-all duration-300 flex items-center justify-center">
                     <div className="text-center">
-                      <div className="w-16 h-16 bg-white/80 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <span className="text-2xl font-bold text-j2k-red">{item.id}</span>
-                      </div>
                       <h3 className="text-white font-bold text-lg">{item.title}</h3>
                       <p className="text-white/80 text-sm">{item.category}</p>
                     </div>
@@ -211,9 +193,6 @@ const Portfolio = () => {
                   />
                   <div className="absolute inset-0 bg-j2k-red/20 group-hover:bg-j2k-red/40 transition-all duration-300 flex items-center justify-center">
                     <div className="text-center">
-                      <div className="w-16 h-16 bg-white/80 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <span className="text-2xl font-bold text-j2k-red">{item.id}</span>
-                      </div>
                       <h3 className="text-white font-bold text-lg">{item.title}</h3>
                       <p className="text-white/80 text-sm">{item.category}</p>
                     </div>
@@ -232,9 +211,6 @@ const Portfolio = () => {
                   />
                   <div className="absolute inset-0 bg-j2k-red/20 group-hover:bg-j2k-red/40 transition-all duration-300 flex items-center justify-center">
                     <div className="text-center">
-                      <div className="w-16 h-16 bg-white/80 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <span className="text-2xl font-bold text-j2k-red">{item.id}</span>
-                      </div>
                       <h3 className="text-white font-bold text-lg">{item.title}</h3>
                       <p className="text-white/80 text-sm">{item.category}</p>
                     </div>
