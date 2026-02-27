@@ -7,7 +7,6 @@ import {
   DialogDescription,
   DialogHeader,
   DialogTitle,
-  DialogFooter,
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -25,6 +24,7 @@ const BookAppointmentDialog: React.FC<BookAppointmentDialogProps> = ({ isOpen, o
     name: '',
     email: '',
     phone: '',
+    date: '',
     message: '',
   });
 
@@ -38,7 +38,7 @@ const BookAppointmentDialog: React.FC<BookAppointmentDialogProps> = ({ isOpen, o
       },
       body: JSON.stringify({
         ...formData,
-        _subject: `New Appointment Booking Request from ${formData.name}`
+        _subject: `New Appointment Booking Request from ${formData.name} for ${formData.date}`
       }),
     });
 
@@ -51,6 +51,7 @@ const BookAppointmentDialog: React.FC<BookAppointmentDialogProps> = ({ isOpen, o
         name: '',
         email: '',
         phone: '',
+        date: '',
         message: '',
       });
     } else {
@@ -60,10 +61,10 @@ const BookAppointmentDialog: React.FC<BookAppointmentDialogProps> = ({ isOpen, o
 
   return (
     <Dialog open={isOpen} onOpenChange={onOpenChange}>
-      <DialogContent className="bg-j2k-white text-j2k-black border-j2k-red border-2 p-6 max-w-sm rounded-none">
+      <DialogContent className="bg-j2k-white text-j2k-black border-j2k-red border-2 p-6 md:p-8 max-w-[95vw] sm:max-w-md md:max-w-lg rounded-none overflow-y-auto max-h-[90vh]">
         <DialogHeader className="text-center">
-          <DialogTitle className="text-2xl font-script text-j2k-red mb-2">Book a Session</DialogTitle>
-          <DialogDescription className="text-j2k-black text-base font-sans">
+          <DialogTitle className="text-3xl font-script text-j2k-red mb-2">Book a Session</DialogTitle>
+          <DialogDescription className="text-j2k-black text-lg font-sans">
             Schedule your photography session with us
           </DialogDescription>
         </DialogHeader>
@@ -71,53 +72,67 @@ const BookAppointmentDialog: React.FC<BookAppointmentDialogProps> = ({ isOpen, o
           onSubmit={handleSubmit} 
           action="https://formspree.io/f/xjgebrwq"
           method="POST"
-          className="grid gap-4 py-4"
+          className="grid gap-5 py-4"
         >
-          <div>
-            <Label htmlFor="name" className="text-j2k-black">Name</Label>
+          <div className="grid gap-2">
+            <Label htmlFor="name" className="text-j2k-black font-bold uppercase text-xs tracking-widest">Full Name</Label>
             <Input
               id="name"
               name="name"
               placeholder="Your name"
-              className="bg-j2k-white text-j2k-black border-j2k-red focus:ring-j2k-red rounded-none"
+              className="bg-j2k-white text-j2k-black border-j2k-red focus:ring-j2k-red rounded-none h-12"
               value={formData.name}
               onChange={(e) => setFormData({...formData, name: e.target.value})}
               required
             />
           </div>
-          <div>
-            <Label htmlFor="email" className="text-j2k-black">Email</Label>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="grid gap-2">
+              <Label htmlFor="email" className="text-j2k-black font-bold uppercase text-xs tracking-widest">Email Address</Label>
+              <Input
+                id="email"
+                name="email"
+                type="email"
+                placeholder="Your email"
+                className="bg-j2k-white text-j2k-black border-j2k-red focus:ring-j2k-red rounded-none h-12"
+                value={formData.email}
+                onChange={(e) => setFormData({...formData, email: e.target.value})}
+                required
+              />
+            </div>
+            <div className="grid gap-2">
+              <Label htmlFor="phone" className="text-j2k-black font-bold uppercase text-xs tracking-widest">Phone Number</Label>
+              <Input
+                id="phone"
+                name="phone"
+                type="tel"
+                placeholder="Your phone"
+                className="bg-j2k-white text-j2k-black border-j2k-red focus:ring-j2k-red rounded-none h-12"
+                value={formData.phone}
+                onChange={(e) => setFormData({...formData, phone: e.target.value})}
+                required
+              />
+            </div>
+          </div>
+          <div className="grid gap-2">
+            <Label htmlFor="date" className="text-j2k-black font-bold uppercase text-xs tracking-widest">Preferred Date</Label>
             <Input
-              id="email"
-              name="email"
-              type="email"
-              placeholder="Your email"
-              className="bg-j2k-white text-j2k-black border-j2k-red focus:ring-j2k-red rounded-none"
-              value={formData.email}
-              onChange={(e) => setFormData({...formData, email: e.target.value})}
+              id="date"
+              name="date"
+              type="date"
+              className="bg-j2k-white text-j2k-black border-j2k-red focus:ring-j2k-red rounded-none h-12"
+              value={formData.date}
+              onChange={(e) => setFormData({...formData, date: e.target.value})}
               required
             />
           </div>
-          <div>
-            <Label htmlFor="phone" className="text-j2k-black">Phone</Label>
-            <Input
-              id="phone"
-              name="phone"
-              type="tel"
-              placeholder="Your phone"
-              className="bg-j2k-white text-j2k-black border-j2k-red focus:ring-j2k-red rounded-none"
-              value={formData.phone}
-              onChange={(e) => setFormData({...formData, phone: e.target.value})}
-              required
-            />
-          </div>
-          <div>
-            <Label htmlFor="message" className="text-j2k-black">Message</Label>
+          <div className="grid gap-2">
+            <Label htmlFor="message" className="text-j2k-black font-bold uppercase text-xs tracking-widest">Session Details</Label>
             <Textarea
               id="message"
               name="message"
-              placeholder="Tell us about your session"
-              className="bg-j2k-white text-j2k-black border-j2k-red focus:ring-j2k-red rounded-none min-h-[100px]"
+              placeholder="Tell us about your session (e.g., location, style, number of people)"
+              className="bg-j2k-white text-j2k-black border-j2k-red focus:ring-j2k-red rounded-none min-h-[120px]"
               value={formData.message}
               onChange={(e) => setFormData({...formData, message: e.target.value})}
               required
@@ -127,9 +142,9 @@ const BookAppointmentDialog: React.FC<BookAppointmentDialogProps> = ({ isOpen, o
             <RippleButton
               type="submit"
               variant="j2kRed"
-              className="text-lg px-8 py-2 shadow-lg rounded-none w-full"
+              className="text-xl px-8 py-6 shadow-lg rounded-none w-full font-bold uppercase tracking-widest"
             >
-              Book Session
+              Confirm Booking Request
             </RippleButton>
           </div>
         </form>

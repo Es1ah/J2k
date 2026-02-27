@@ -2,9 +2,8 @@
 
 import React, { useState } from 'react';
 import { RippleButton } from '@/components/animate-ui/components/buttons/ripple';
-import { Link } from 'react-router-dom';
 import ServicesSection from '@/components/ServicesSection';
-import BookAppointmentDialog from '@/components/BookAppointmentDialog'; // Import BookAppointmentDialog
+import BookAppointmentDialog from '@/components/BookAppointmentDialog';
 
 interface PackageItem {
   id: string;
@@ -38,7 +37,7 @@ const priceList: PackageCategory[] = [
 ];
 
 const PriceList = () => {
-  const [isBookingDialogOpen, setIsBookingDialogOpen] = useState(false); // State for the dialog
+  const [isBookingDialogOpen, setIsBookingDialogOpen] = useState(false);
 
   return (
     <div className="min-h-screen bg-j2k-white text-j2k-black">
@@ -57,18 +56,15 @@ const PriceList = () => {
             <div className="space-y-6">
               {category.items.map((item) => (
                 <div key={item.id} className="flex flex-col sm:flex-row justify-between items-start sm:items-center border-b border-gray-200 pb-4">
-                  <div className="flex-grow mb-2 sm:mb-0">
+                  <div className="flex-grow mb-4 sm:mb-0">
                     <h3 className="text-xl font-semibold">{item.name}</h3>
                     <p className="text-lg text-gray-600">{item.price}</p>
                   </div>
-                  <div className="flex space-x-3">
-                    <RippleButton variant="outline" className="border-j2k-red text-j2k-red hover:bg-j2k-red hover:text-j2k-white rounded-none">
-                      Add to cart
-                    </RippleButton>
+                  <div className="w-full sm:w-auto">
                     <RippleButton
                       variant="j2kRed"
-                      className="rounded-none"
-                      onClick={() => setIsBookingDialogOpen(true)} // Open dialog on click
+                      className="rounded-none w-full sm:w-auto px-8 py-4 font-bold uppercase tracking-widest"
+                      onClick={() => setIsBookingDialogOpen(true)}
                     >
                       Book now
                     </RippleButton>
@@ -79,7 +75,7 @@ const PriceList = () => {
           </div>
         ))}
       </div>
-      <BookAppointmentDialog isOpen={isBookingDialogOpen} onOpenChange={setIsBookingDialogOpen} /> {/* Render the dialog */}
+      <BookAppointmentDialog isOpen={isBookingDialogOpen} onOpenChange={setIsBookingDialogOpen} />
     </div>
   );
 };
