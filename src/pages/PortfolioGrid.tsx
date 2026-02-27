@@ -39,15 +39,20 @@ const PortfolioGrid = () => {
   return (
     <div className="bg-j2k-white min-h-screen pb-20">
       {/* Header */}
-      <div className="sticky top-0 z-40 bg-j2k-white/80 backdrop-blur-md border-b border-gray-100 py-4 px-4">
-        <div className="container mx-auto flex justify-between items-center">
-          <Link to="/portfolio">
-            <RippleButton variant="outline" className="flex items-center gap-2 border-j2k-black text-j2k-black hover:bg-j2k-black hover:text-j2k-white rounded-none">
-              <ArrowLeft size={18} />
+      <div className="sticky top-0 z-40 bg-j2k-white/80 backdrop-blur-md border-b border-gray-100 py-6 px-4">
+        <div className="container mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+          <Link to="/portfolio" className="w-full md:w-auto order-1 md:order-none">
+            <RippleButton 
+              variant="j2kRed" 
+              className="w-full md:w-auto flex items-center justify-center gap-2 rounded-none py-6 px-8 text-lg"
+            >
+              <ArrowLeft size={20} />
               Back to Portfolio
             </RippleButton>
           </Link>
-          <h1 className="text-xl md:text-2xl font-bold uppercase tracking-tighter">All Projects</h1>
+          <h1 className="text-2xl md:text-3xl font-bold uppercase tracking-tighter order-2 md:order-none">
+            All Projects
+          </h1>
         </div>
       </div>
 
@@ -71,17 +76,19 @@ const PortfolioGrid = () => {
                   </div>
                 </div>
               </DialogTrigger>
-              <DialogContent className="max-w-[95vw] max-h-[95vh] p-0 bg-transparent border-none shadow-none flex items-center justify-center">
-                <div className="relative w-full h-full flex items-center justify-center">
-                  <img 
-                    src={img} 
-                    alt="Full view" 
-                    className="max-w-full max-h-[90vh] object-contain shadow-2xl"
-                  />
-                  <DialogClose className="absolute -top-12 right-0 text-white hover:text-j2k-red transition-colors">
-                    <X size={32} />
-                    <span className="sr-only">Close</span>
-                  </DialogClose>
+              <DialogContent className="max-w-[90vw] md:max-w-[80vw] max-h-[90vh] p-0 bg-transparent border-none shadow-none flex items-center justify-center">
+                <div className="relative w-full h-full flex flex-col items-center justify-center">
+                  <div className="relative max-w-full max-h-[80vh]">
+                    <img 
+                      src={img} 
+                      alt="Full view" 
+                      className="max-w-full max-h-[80vh] object-contain shadow-2xl"
+                    />
+                    <DialogClose className="absolute -top-10 right-0 md:-right-10 text-white hover:text-j2k-red transition-colors bg-j2k-black/50 p-1 rounded-full">
+                      <X size={28} />
+                      <span className="sr-only">Close</span>
+                    </DialogClose>
+                  </div>
                 </div>
               </DialogContent>
             </Dialog>
