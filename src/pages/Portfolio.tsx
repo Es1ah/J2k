@@ -3,7 +3,7 @@
 import React from 'react';
 import { RippleButton } from '@/components/animate-ui/components/buttons/ripple';
 
-// Import all 12 images directly
+// Import existing portfolio images
 import portfolio1 from '/portfolio-images/portfolio-1.jpg';
 import portfolio2 from '/portfolio-images/portfolio-2.jpg';
 import portfolio3 from '/portfolio-images/portfolio-3.jpg';
@@ -17,8 +17,15 @@ import portfolio10 from '/portfolio-images/portfolio-10.jpg';
 import portfolio11 from '/portfolio-images/portfolio-11.jpg';
 import portfolio12 from '/portfolio-images/portfolio-12.jpg';
 
+// Import new images from src
+import newImg1 from '../IMG_2944.JPG.jpeg';
+import newImg2 from '../WhatsApp Image 2026-02-26 at 4.32.46 PM.jpeg';
+import newImg3 from '../WhatsApp Image 2026-02-26 at 5.03.50 PM.jpeg';
+import newImg4 from '../WhatsApp Image 2026-02-26 at 5.04.42 PM.jpeg';
+import newImg5 from '../WhatsApp Image 2026-02-26 at 5.05.20 PM.jpeg';
+
 const Portfolio = () => {
-  // Define the portfolio images array using the imported modules
+  // Define the portfolio images array including new images
   const portfolioImages = [
     portfolio1,
     portfolio2,
@@ -32,14 +39,19 @@ const Portfolio = () => {
     portfolio10,
     portfolio11,
     portfolio12,
+    newImg1,
+    newImg2,
+    newImg3,
+    newImg4,
+    newImg5,
   ];
 
-  // Create portfolio items, cycling through the 12 images
-  const portfolioItems = Array(24).fill(null).map((_, i) => ({
+  // Create portfolio items, cycling through the images
+  const portfolioItems = Array(32).fill(null).map((_, i) => ({
     id: i + 1,
     title: `Project ${i + 1}`,
     category: ['Portrait', 'Event', 'Commercial', 'Creative'][i % 4],
-    image: portfolioImages[i % portfolioImages.length], // Cycle through the 12 images
+    image: portfolioImages[i % portfolioImages.length],
   }));
 
   return (
@@ -66,7 +78,7 @@ const Portfolio = () => {
         <div className="container mx-auto max-w-7xl">
           {/* Row 1 - Sliding Left to Right */}
           <div className="flex mb-8 animate-slide-right">
-            {portfolioItems.slice(0, 6).map((item) => (
+            {portfolioItems.slice(0, 8).map((item) => (
               <div key={`right-${item.id}`} className="flex-shrink-0 w-80 h-64 mx-4 relative group">
                 <div className="w-full h-full bg-gradient-to-br from-gray-200 to-gray-400 rounded-lg shadow-lg overflow-hidden">
                   <img 
@@ -81,7 +93,7 @@ const Portfolio = () => {
               </div>
             ))}
             {/* Duplicate for seamless loop */}
-            {portfolioItems.slice(0, 6).map((item) => (
+            {portfolioItems.slice(0, 8).map((item) => (
               <div key={`right-dup-${item.id}`} className="flex-shrink-0 w-80 h-64 mx-4 relative group">
                 <div className="w-full h-full bg-gradient-to-br from-gray-200 to-gray-400 rounded-lg shadow-lg overflow-hidden">
                   <img 
@@ -99,7 +111,7 @@ const Portfolio = () => {
 
           {/* Row 2 - Sliding Right to Left */}
           <div className="flex mb-8 animate-slide-left">
-            {portfolioItems.slice(6, 12).map((item) => (
+            {portfolioItems.slice(8, 16).map((item) => (
               <div key={`left-${item.id}`} className="flex-shrink-0 w-80 h-64 mx-4 relative group">
                 <div className="w-full h-full bg-gradient-to-br from-gray-300 to-gray-500 rounded-lg shadow-lg overflow-hidden">
                   <img 
@@ -114,7 +126,7 @@ const Portfolio = () => {
               </div>
             ))}
             {/* Duplicate for seamless loop */}
-            {portfolioItems.slice(6, 12).map((item) => (
+            {portfolioItems.slice(8, 16).map((item) => (
               <div key={`left-dup-${item.id}`} className="flex-shrink-0 w-80 h-64 mx-4 relative group">
                 <div className="w-full h-full bg-gradient-to-br from-gray-300 to-gray-500 rounded-lg shadow-lg overflow-hidden">
                   <img 
@@ -132,7 +144,7 @@ const Portfolio = () => {
 
           {/* Row 3 - Sliding Left to Right */}
           <div className="flex mb-8 animate-slide-right">
-            {portfolioItems.slice(12, 18).map((item) => (
+            {portfolioItems.slice(16, 24).map((item) => (
               <div key={`right2-${item.id}`} className="flex-shrink-0 w-80 h-64 mx-4 relative group">
                 <div className="w-full h-full bg-gradient-to-br from-gray-400 to-gray-600 rounded-lg shadow-lg overflow-hidden">
                   <img 
@@ -147,7 +159,7 @@ const Portfolio = () => {
               </div>
             ))}
             {/* Duplicate for seamless loop */}
-            {portfolioItems.slice(12, 18).map((item) => (
+            {portfolioItems.slice(16, 24).map((item) => (
               <div key={`right2-dup-${item.id}`} className="flex-shrink-0 w-80 h-64 mx-4 relative group">
                 <div className="w-full h-full bg-gradient-to-br from-gray-400 to-gray-600 rounded-lg shadow-lg overflow-hidden">
                   <img 
@@ -165,7 +177,7 @@ const Portfolio = () => {
 
           {/* Row 4 - Sliding Right to Left */}
           <div className="flex animate-slide-left">
-            {portfolioItems.slice(18, 24).map((item) => (
+            {portfolioItems.slice(24, 32).map((item) => (
               <div key={`left2-${item.id}`} className="flex-shrink-0 w-80 h-64 mx-4 relative group">
                 <div className="w-full h-full bg-gradient-to-br from-gray-500 to-gray-700 rounded-lg shadow-lg overflow-hidden">
                   <img 
@@ -180,7 +192,7 @@ const Portfolio = () => {
               </div>
             ))}
             {/* Duplicate for seamless loop */}
-            {portfolioItems.slice(18, 24).map((item) => (
+            {portfolioItems.slice(24, 32).map((item) => (
               <div key={`left2-dup-${item.id}`} className="flex-shrink-0 w-80 h-64 mx-4 relative group">
                 <div className="w-full h-full bg-gradient-to-br from-gray-500 to-gray-700 rounded-lg shadow-lg overflow-hidden">
                   <img 

@@ -8,7 +8,7 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Link } from 'react-router-dom';
 
-// Import all 12 images directly
+// Import existing portfolio images
 import portfolio1 from '/portfolio-images/portfolio-1.jpg';
 import portfolio2 from '/portfolio-images/portfolio-2.jpg';
 import portfolio3 from '/portfolio-images/portfolio-3.jpg';
@@ -22,6 +22,13 @@ import portfolio10 from '/portfolio-images/portfolio-10.jpg';
 import portfolio11 from '/portfolio-images/portfolio-11.jpg';
 import portfolio12 from '/portfolio-images/portfolio-12.jpg';
 
+// Import new images from src
+import newImg1 from '../IMG_2944.JPG.jpeg';
+import newImg2 from '../WhatsApp Image 2026-02-26 at 4.32.46 PM.jpeg';
+import newImg3 from '../WhatsApp Image 2026-02-26 at 5.03.50 PM.jpeg';
+import newImg4 from '../WhatsApp Image 2026-02-26 at 5.04.42 PM.jpeg';
+import newImg5 from '../WhatsApp Image 2026-02-26 at 5.05.20 PM.jpeg';
+
 gsap.registerPlugin(ScrollTrigger);
 
 const Index = () => {
@@ -29,7 +36,7 @@ const Index = () => {
   const introTextRef = useRef(null);
   const whoWeAreRef = useRef(null);
 
-  // Portfolio images array (now 12 images)
+  // Portfolio images array including new images
   const portfolioImages = [
     portfolio1,
     portfolio2,
@@ -43,6 +50,11 @@ const Index = () => {
     portfolio10,
     portfolio11,
     portfolio12,
+    newImg1,
+    newImg2,
+    newImg3,
+    newImg4,
+    newImg5,
   ];
 
   useEffect(() => {
@@ -149,13 +161,13 @@ const Index = () => {
         <div className="overflow-hidden relative py-4">
           {/* First row sliding right */}
           <div className="flex mb-4 animate-slide-right">
-            {[...Array(6)].map((_, i) => (
+            {portfolioImages.slice(0, 8).map((img, i) => (
               <div
                 key={`right-${i}`}
                 className="flex-shrink-0 w-[300px] h-[200px] relative bg-gray-800 flex items-center justify-center border border-j2k-white p-2 overflow-hidden group mx-2"
               >
                 <img
-                  src={portfolioImages[i % portfolioImages.length]}
+                  src={img}
                   alt={`Gallery Item ${i + 1}`}
                   className="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                 />
@@ -165,13 +177,13 @@ const Index = () => {
               </div>
             ))}
             {/* Duplicate items for seamless loop */}
-            {[...Array(6)].map((_, i) => (
+            {portfolioImages.slice(0, 8).map((img, i) => (
               <div
                 key={`right-dup-${i}`}
                 className="flex-shrink-0 w-[300px] h-[200px] relative bg-gray-800 flex items-center justify-center border border-j2k-white p-2 overflow-hidden group mx-2"
               >
                 <img
-                  src={portfolioImages[i % portfolioImages.length]}
+                  src={img}
                   alt={`Gallery Item ${i + 1}`}
                   className="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                 />
@@ -184,14 +196,14 @@ const Index = () => {
 
           {/* Second row sliding left */}
           <div className="flex animate-slide-left">
-            {[...Array(6)].map((_, i) => (
+            {portfolioImages.slice(8, 16).map((img, i) => (
               <div
                 key={`left-${i}`}
                 className="flex-shrink-0 w-[300px] h-[200px] relative bg-gray-800 flex items-center justify-center border border-j2k-white p-2 overflow-hidden group mx-2"
               >
                 <img
-                  src={portfolioImages[(i + 6) % portfolioImages.length]} // Offset to show different images
-                  alt={`Gallery Item ${i + 7}`}
+                  src={img}
+                  alt={`Gallery Item ${i + 9}`}
                   className="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-j2k-black opacity-0 group-hover:opacity-50 transition-opacity duration-300 flex items-center justify-center">
@@ -200,14 +212,14 @@ const Index = () => {
               </div>
             ))}
             {/* Duplicate items for seamless loop */}
-            {[...Array(6)].map((_, i) => (
+            {portfolioImages.slice(8, 16).map((img, i) => (
               <div
                 key={`left-dup-${i}`}
                 className="flex-shrink-0 w-[300px] h-[200px] relative bg-gray-800 flex items-center justify-center border border-j2k-white p-2 overflow-hidden group mx-2"
               >
                 <img
-                  src={portfolioImages[(i + 6) % portfolioImages.length]} // Offset to show different images
-                  alt={`Gallery Item ${i + 7}`}
+                  src={img}
+                  alt={`Gallery Item ${i + 9}`}
                   className="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-j2k-black opacity-0 group-hover:opacity-50 transition-opacity duration-300 flex items-center justify-center">
