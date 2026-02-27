@@ -9,7 +9,8 @@ import Layout from "./components/Layout";
 import PriceList from "./pages/PriceList";
 import Contact from "./pages/Contact";
 import Portfolio from "./pages/Portfolio";
-import About from "./pages/About"; // Import the new About page
+import PortfolioGrid from "./pages/PortfolioGrid"; // Import the new PortfolioGrid page
+import About from "./pages/About";
 import ScrollToTop from "./components/ScrollToTop";
 
 const queryClient = new QueryClient();
@@ -27,7 +28,8 @@ const App = () => (
             <Route path="/price-list" element={<PriceList />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/portfolio" element={<Portfolio />} />
-            <Route path="/about" element={<About />} /> {/* Add the new About route */}
+            <Route path="/portfolio/grid" element={<PortfolioGrid />} /> {/* Add the new PortfolioGrid route */}
+            <Route path="/about" element={<About />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>

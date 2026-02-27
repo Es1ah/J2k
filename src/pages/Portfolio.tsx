@@ -1,6 +1,7 @@
 "use client";
 
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { RippleButton } from '@/components/animate-ui/components/buttons/ripple';
 
 // Import existing portfolio images
@@ -67,9 +68,11 @@ const Portfolio = () => {
           <p className="text-xl md:text-3xl font-sans mb-12 max-w-4xl mx-auto text-j2k-black">
             Explore our diverse collection of captured moments and visual stories
           </p>
-          <RippleButton variant="j2kRedLarge">
-            View All Projects
-          </RippleButton>
+          <Link to="/portfolio/grid">
+            <RippleButton variant="j2kRedLarge">
+              View All Projects
+            </RippleButton>
+          </Link>
         </div>
       </section>
 
